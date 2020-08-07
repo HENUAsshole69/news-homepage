@@ -3,8 +3,17 @@
 <v-container fluid :style="{ backgroundImage: 'url(' + require('../../public/img/indexhbg.jpg') + ')','background-size':'cover' }">
     <v-container>
         <v-row no-gutters>
-            <v-col>
+            <v-col class="flex-grow-0">
                 <img src="../../public/img/logo.png">
+            </v-col>
+            <v-col class="flex-grow-1">
+                <v-container fluid>
+                    <v-row no-gutters>
+                        <div class="my-2">
+                            <v-btn text color="white">首页</v-btn>
+                        </div>
+                    </v-row>
+                </v-container>
             </v-col>
         </v-row>
         <v-row>
@@ -120,6 +129,8 @@
         <auction/>
         <Cards/>
         <HonorWall/>
+        <Footer/>
+        <LegalInfo/>
     </div>
 </template>
 
@@ -131,9 +142,13 @@ import Browse from "@/components/Browse";
 import Auction from "@/components/Auction";
 import Cards from "@/components/Cards";
 import HonorWall from "@/components/HonorWall";
+import Footer from "@/components/Footer";
+import LegalInfo from "@/components/LegalInfo";
 export default {
   name: 'Home',
   components: {
+      LegalInfo,
+      Footer,
       HonorWall,
       Cards,
       Auction,
@@ -150,19 +165,22 @@ export default {
           {title:'海关监管',icon:''},
       ],
       browseItems:[
-          {title:'艺术品介绍',icon:''},
-          {title:'保存介绍',icon:''},
-          {title:'海关监管',icon:''},
+          {title:'书画展',icon:''},
+          {title:'瓷器展',icon:''},
+          {title:'杂项展',icon:''},
+          {title:'展讯介绍',icon:''}
       ],
       auctionItems:[
-          {title:'艺术品介绍',icon:''},
-          {title:'保存介绍',icon:''},
-          {title:'海关监管',icon:''},
+          {title:'春秋',icon:''},
+          {title:'望塑',icon:''},
+          {title:'网拍',icon:''},
+          {title:'拍卖厅介绍',icon:''}
       ],
       childDeptItems:[
-          {title:'艺术品介绍',icon:''},
-          {title:'保存介绍',icon:''},
-          {title:'海关监管',icon:''},
+          {title:'艺术银行',icon:''},
+          {title:'社会文物登记服务中心',icon:''},
+          {title:'离退+电商',icon:''},
+          {title:'艺术品托管平台',icon:''}
       ],
       colors: [
           'indigo',
