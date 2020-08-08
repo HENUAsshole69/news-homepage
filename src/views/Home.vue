@@ -1,5 +1,13 @@
 <template>
     <div>
+        <v-app-bar
+                app
+                color="black"
+                dark
+                dense
+        >
+
+        </v-app-bar>
 <v-container fluid :style="{ backgroundImage: 'url(' + require('../../public/img/indexhbg.jpg') + ')','background-size':'cover' }">
     <v-container>
         <v-row no-gutters>
