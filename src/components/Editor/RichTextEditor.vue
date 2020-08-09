@@ -18,9 +18,19 @@
     import {ArticleClient} from "../../client/ArticleClient";
     export default {
         name: "RichTextEditor",
+        props:{
+            content:{
+                type: String,
+                default:undefined
+            }
+        },
         data:()=>({
             quill:null
         }),
+        model:{
+            prop:'content',
+            event:'update'
+        },
         mounted() {
             this.quill = new Quill(this.$refs['editor'],{
                 theme: 'snow',
@@ -38,11 +48,12 @@
                     ],
                 }
             })
+            if(this.content !== undefined)
+                this.quill.setContents(JSON.parse(this.content))
         },
         methods:{
             save:async function () {
-                const res = await ArticleClient.postAntique(JSON.stringify(this.quill.getContents()),'assd')
-                console.log(res)
+                this.$emit('update',JSON.stringify(this.quill.getContents()))
             }
         }
     }

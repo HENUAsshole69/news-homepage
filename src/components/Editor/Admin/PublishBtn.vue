@@ -1,0 +1,32 @@
+<template>
+    <v-btn class="ma-2" :loading="loading" :disabled="published" @click="publish" tile outlined color="success">
+        <v-icon left>mdi-publish</v-icon> {{published?'已发布':'发布'}}
+    </v-btn>
+</template>
+
+<script>
+    import {ArticleClient} from "../../../client/ArticleClient";
+
+    export default {
+        name: "PublishBtn",
+        props:{
+            id: Number,
+            published: Boolean
+        },
+        data:()=>({
+            loading:false
+        }),
+        methods:{
+            async publish(){
+                this.loading = true
+                await ArticleClient.publish(this.id)
+                this.loading = false
+                this.$emit('published')
+            }
+        }
+    }
+</script>
+
+<style scoped>
+
+</style>
