@@ -146,7 +146,7 @@
 
 import NewsViewer from "@/components/NewsViewer";
 import TaxFree from "@/components/TaxFree";
-import Browse from "@/components/Browse";
+import Browse from "@/components/Exhibition";
 import Auction from "@/components/Auction";
 import Cards from "@/components/Cards";
 import HonorWall from "@/components/HonorWall";

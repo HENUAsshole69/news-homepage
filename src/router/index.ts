@@ -10,11 +10,23 @@ Vue.use(VueRouter)
     name: 'Home',
     component: ()=>import('../views/Home.vue')
   },
-  {
-    path: '/editor',
-    name: 'Editor',
-    component: () => import(/* webpackChunkName: "about" */ '../views/NewArticle.vue')
-  },
+    {
+      path: '/manage',
+      component: () => import(/* webpackChunkName: "about" */ '../views/Manage.vue'),
+      children:[
+        { path: '', redirect:  { name: 'ArticleManagement' } },
+        {
+          path: 'articleManagement',
+          name: 'ArticleManagement',
+          component: ()=>import('../views/Management/ArticleManagement.vue')
+        },
+        {
+          path: '/manage/editor',
+          name: 'Editor',
+          component: () => import(/* webpackChunkName: "about" */ '../views/Management/NewArticle.vue')
+        }
+      ]
+    },
     {
       path: '/edit/:id',
       name: 'ArticleEdit',

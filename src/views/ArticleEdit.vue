@@ -1,36 +1,55 @@
 <template>
     <div>
-        <cover-editor :id="id"/>
-        <rich-text-editor v-model="content" :key="content"/>
+        <v-container>
+            <v-row>
+                <v-col>
+                    <div ref="editor" style="height: 100%"></div>
+                </v-col>
+            </v-row>
+        </v-container>
     </div>
 </template>
 
 <script>
-    import RichTextEditor from "../components/Editor/RichTextEditor";
     import {ArticleClient} from "../client/ArticleClient";
-    import CoverEditor from "../components/Cover/CoverEditor";
+    import Quill from "quill";
     export default {
         name: "ArticleEdit",
-        components: {CoverEditor, RichTextEditor},
         props:{
             id: String
         },
         data:()=>({
             content: undefined
         }),
-        async created() {
-            this.content = JSON.stringify((await ArticleClient.getArticle(this.id)).data)
-        },
-        watch:{
-            content:function (n,o) {
-                if(o !== undefined){
-                    ArticleClient.updateArticle(this.content,this.id)
+        async mounted() {
+            this.quill = new Quill(this.$refs['editor'],{
+                scrollingContainer:this.$refs['editor'],
+                theme: 'snow',
+                modules: {
+                    'toolbar': [
+                        [{ 'font': ['sofia', 'slabo', 'roboto', 'inconsolata', 'ubuntu'] }, { 'size': [] }],
+                        [ 'bold', 'italic', 'underline', 'strike' ],
+                        [{ 'color': [] }, { 'background': [] }],
+                        [{ 'script': 'super' }, { 'script': 'sub' }],
+                        [{ 'header': '1' }, { 'header': '2' }, 'blockquote', 'code-block' ],
+                        [{ 'list': 'ordered' }, { 'list': 'bullet'}, { 'indent': '-1' }, { 'indent': '+1' }],
+                        [ {'direction': 'rtl'}, { 'align': [] }],
+                        [ 'link', 'image', 'video', 'formula' ],
+                        [ 'clean' ]
+                    ],
                 }
+            })
+            this.content = JSON.stringify((await ArticleClient.getArticle(this.id)).data)
+            this.quill.setContents(JSON.parse(this.content))
+        },
+        methods:{
+            save:async function () {
+                this.$emit('update',JSON.stringify(this.quill.getContents()))
             }
         }
     }
 </script>
 
 <style scoped>
-
+    @import "~quill/dist/quill.snow.css";
 </style>

@@ -1,9 +1,5 @@
 <template>
-    <v-card
-            max-width="444"
-            class="mx-auto"
-            height="300"
-    >
+    <div>
         <v-system-bar lights-out></v-system-bar>
         <v-carousel
                 :continuous="false"
@@ -28,7 +24,7 @@
                 </v-btn>
             </v-list-item>
         </v-list>
-    </v-card>
+    </div>
 </template>
 
 <script>

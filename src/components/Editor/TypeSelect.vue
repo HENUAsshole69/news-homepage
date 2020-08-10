@@ -1,8 +1,10 @@
 <template>
     <v-select
+            v-model="val"
             :items="items"
             label="类型"
             :rules="rules"
+            @change="$emit('change',$event)"
     ></v-select>
 </template>
 
@@ -10,6 +12,7 @@
     export default {
         name: "TypeSelect",
         data:()=>({
+            val:'NEWS',
             items:[
                 {value:'NEWS',text: '新闻'},
                 {value: 'ACTIVITY',text: '活动'},
