@@ -1,6 +1,6 @@
 import AxiosInstance from "./AxiosInstance";
 import { Page } from '@/model/Page';
-import {Type} from "@/model/Article";
+import {Article, Type} from "@/model/Article";
 
 export class ArticleClient{
 
@@ -30,6 +30,10 @@ export class ArticleClient{
         return await AxiosInstance.get('/article/'+id,{ responseType: 'text' })
     }
 
+    static async getArticleDto(id: number): Promise<Article>{
+        return (await AxiosInstance.get('/article/'+id+'/dto',{  })).data as Article
+    }
+
     static async publish(id: number){
         return await AxiosInstance.get('/article/'+id+'/publish')
     }
@@ -42,5 +46,13 @@ export class ArticleClient{
         return AxiosInstance.put('/article/'+id,article,{
             headers: { 'Content-Type': 'text/plain' }
         })
+    }
+
+    static async postHeadline(id: number){
+        return await AxiosInstance.post('/article/'+id+'/headline')
+    }
+
+    static async delHeadline(id: number){
+        return await AxiosInstance.delete('/article/'+id+'/headline')
     }
 }

@@ -99,30 +99,7 @@
                 </v-col>
                 <v-col>
                     <v-row>
-                    <v-carousel
-                            cycle
-                            height="400"
-                            hide-delimiter-background
-                            show-arrows-on-hover
-                    >
-                        <v-carousel-item
-                                v-for="(slide, i) in slides"
-                                :key="i"
-                        >
-                            <v-sheet
-                                    :color="colors[i]"
-                                    height="100%"
-                            >
-                                <v-row
-                                        class="fill-height"
-                                        align="center"
-                                        justify="center"
-                                >
-                                    <div class="display-3">{{ slide }} Slide</div>
-                                </v-row>
-                            </v-sheet>
-                        </v-carousel-item>
-                    </v-carousel>
+                    <home-carousel/>
                     </v-row>
                     <v-row>
                         <v-col><news-viewer/></v-col>
@@ -134,7 +111,6 @@
 </v-container>
         <tax-free/>
         <browse/>
-        <auction/>
         <Cards/>
         <HonorWall/>
         <Footer/>
@@ -147,19 +123,19 @@
 import NewsViewer from "@/components/NewsViewer";
 import TaxFree from "@/components/TaxFree";
 import Browse from "@/components/Exhibition";
-import Auction from "@/components/Auction";
 import Cards from "@/components/Cards";
 import HonorWall from "@/components/HonorWall";
 import Footer from "@/components/Footer";
 import LegalInfo from "@/components/LegalInfo";
+import HomeCarousel from "@/components/Home/HomeCarousel";
 export default {
   name: 'Home',
   components: {
+      HomeCarousel,
       LegalInfo,
       Footer,
       HonorWall,
       Cards,
-      Auction,
       Browse,
       TaxFree,
       NewsViewer
@@ -189,20 +165,6 @@ export default {
           {title:'社会文物登记服务中心',icon:''},
           {title:'离退+电商',icon:''},
           {title:'艺术品托管平台',icon:''}
-      ],
-      colors: [
-          'indigo',
-          'warning',
-          'pink darken-2',
-          'red lighten-1',
-          'deep-purple accent-4',
-      ],
-      slides: [
-          'First',
-          'Second',
-          'Third',
-          'Fourth',
-          'Fifth',
       ]
   })
 }

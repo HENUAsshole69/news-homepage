@@ -1,6 +1,7 @@
 <template>
     <v-card
             outlined
+            tile
     >
         <v-list-item>
             <v-list-item-content>

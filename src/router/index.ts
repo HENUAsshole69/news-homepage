@@ -32,7 +32,13 @@ Vue.use(VueRouter)
       name: 'ArticleEdit',
       props:true,
       component: () => import(/* webpackChunkName: "about" */ '../views/ArticleEdit.vue')
-    }
+    },
+    {
+      path: '/view/:id',
+      name: 'Viewer',
+      props:true,
+      component: () => import(/* webpackChunkName: "about" */ '../views/Viewer.vue')
+    },
 ]
 
 const router = new VueRouter({

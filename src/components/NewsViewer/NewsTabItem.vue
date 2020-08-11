@@ -5,7 +5,7 @@
                 <cover-viewer v-bind:id="currentNews.toString()" :key="currentNews"/>
             </v-col>
             <v-col>
-                <jpa-data-table style="padding: 0;margin: 0" :repo="repo()" :data-table-props="{
+                <jpa-data-table style="padding: 0;margin: 0" :repo="repos[tab - 1]" :data-table-props="{
         'multi-sort':true
       }"
       :data-table-events="{
@@ -13,7 +13,7 @@
       }"
                 >
                     <template v-slot:item="{item}">
-                        <tr @mouseover="currentNews = item.id">
+                        <tr @mouseover="currentNews = item.id" @click="()=>click(item.id)">
                             <td>{{item.title}}</td>
                             <td>{{ item.time }}</td>
                         </tr>
@@ -39,19 +39,32 @@
         },
         data:()=>({
             pageData:[],
-            currentNews:0
+            currentNews:0,
+            repos:[
+                { fetch: TypeAndPubRepo("ACTIVITY",true)},
+                { fetch: TypeAndPubRepo("POLICY",true)},
+                { fetch: TypeAndPubRepo("NEWS",true)},
+                { fetch: TypeAndPubRepo("ANNOUNCE",true)}
+            ],
+            loading:true
         }),
         methods:{
             repo(){
                 return{ fetch: TypeAndPubRepo("NEWS",true)}
             },
-            click(event){
-                alert(event)
+            click(id){
+                this.$router.push("/view/"+id)
             }
         }
     }
 </script>
 
 <style scoped>
-
+    .center {
+        position: absolute;
+        top: 50%;
+        left:50%;
+        width: 100%;
+        transform: translate(-50%,-50%);
+    }
 </style>

@@ -8,11 +8,14 @@
         </template>
         <template v-slot:item.actions="{ item }">
             <publish-btn v-bind="item"/>
-            <del-btn v-bind="item"/>
+            <del-btn v-bind="item" @deleted="$router.go(0)" />
             <edit-btn  v-bind="item"/>
             <v-btn class="ma-2" @click="editCover(item)" tile outlined color="success">
                 <v-icon left>mdi-trash-can-outline</v-icon> 封面编辑
             </v-btn>
+        </template>
+        <template v-slot:item.headline="{ item }">
+            <headline-checkbox :id="item.id" v-model="item.headline"/>
         </template>
     </jpa-data-table>
         <cover-editor-dialog :key="id" :dialog="dialog" :id="id" @close="dialog = false"/>
@@ -26,10 +29,11 @@
     import DelBtn from "./Admin/DelBtn";
     import EditBtn from "./Admin/EditBtn";
     import CoverEditorDialog from "../Cover/CoverEditorDialog";
+    import HeadlineCheckbox from "./Admin/HeadlineCheckbox";
 
     export default {
         name: "AdminTable",
-        components:{CoverEditorDialog, EditBtn, DelBtn, PublishBtn, JpaDataTable},
+        components:{HeadlineCheckbox, CoverEditorDialog, EditBtn, DelBtn, PublishBtn, JpaDataTable},
         data:()=>({
             dialog:false,
             id:null

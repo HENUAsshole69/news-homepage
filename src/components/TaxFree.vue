@@ -4,11 +4,11 @@
             <v-col class="">
         <v-container>
             <v-row>
-                <v-col class="d-flex justify-center" style="padding-right:0;margin-right: 0">
-                    <img :src="require('../../public/img/wz1.png')">
+                <v-col class="d-flex justify-center align-center" style="padding-right:0;margin-right: 0">
+                    <v-img  max-width="227" max-height="175" :src="require('../../public/img/wz1.png')" />
                 </v-col>
                 <v-col  class="d-flex justify-center"  style="padding-left:0;margin-right: 0">
-                    <tax-free-viewer/>
+                    <item-tray :repo="repo"/>
                 </v-col>
             </v-row>
         </v-container>
@@ -19,9 +19,15 @@
 
 <script>
     import TaxFreeViewer from "@/components/TaxFreeSection/TaxFreeViewer";
+    import ItemCard from "@/components/ExhibitionSection/ItemCard";
+    import ItemTray from "@/components/ExhibitionSection/ItemTray";
+    import TypeAndPubRepo from "@/client/TypeAndPubRepo";
     export default {
         name: "TaxFree",
-        components: {TaxFreeViewer}
+        components: {ItemTray},
+        data:()=>({
+            repo: { fetch: TypeAndPubRepo("TAX_FREE",true)}
+        })
     }
 </script>
 

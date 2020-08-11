@@ -3,9 +3,10 @@
     <v-dialog v-model="first" persistent max-width="600px" @close="$router.go(-1)">
         <v-card>
             <v-card-title>
-                <span class="headline">新</span>
+                <span class="headline">新增</span>
             </v-card-title>
             <v-card-text>
+                <v-form v-model="valid">
                 <v-container>
                     <v-row>
                         <v-col>
@@ -18,11 +19,12 @@
                         </v-col>
                     </v-row>
                 </v-container>
+                </v-form>
             </v-card-text>
             <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="blue darken-1" text @click="$router.go(-1)">Close</v-btn>
-                <v-btn color="blue darken-1" text @click="toEdit">Save</v-btn>
+                <v-btn color="blue darken-1" text @click="$router.go(-1)">关闭</v-btn>
+                <v-btn color="blue darken-1" text :disabled="!valid" @click="toEdit">下一步</v-btn>
             </v-card-actions>
         </v-card>
     </v-dialog>
@@ -32,10 +34,10 @@
                 <v-btn icon dark @click="$router.go(-1)">
                     <v-icon>mdi-close</v-icon>
                 </v-btn>
-                <v-toolbar-title>Settings</v-toolbar-title>
+                <v-toolbar-title>编辑</v-toolbar-title>
                 <v-spacer></v-spacer>
                 <v-toolbar-items>
-                    <v-btn dark text @click="submit">Save</v-btn>
+                    <v-btn dark text @click="submit">完成</v-btn>
                 </v-toolbar-items>
             </v-toolbar>
             <v-list three-line subheader v-if="!loading">
@@ -92,6 +94,7 @@
             }
         },
         updated() {
+            if(this.$refs['editor'] === undefined) return;
             this.quill = new Quill(this.$refs['editor'],{
                 theme: 'snow',
                 modules: {
