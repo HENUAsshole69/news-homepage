@@ -22,6 +22,7 @@
                 this.loading = true
                 await ArticleClient.publish(this.id)
                 this.loading = false
+                this.done = true
                 this.$emit('published')
             }
         }

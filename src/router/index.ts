@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
 import Home from '../views/Home.vue'
+import store from '../store/index'
 
 Vue.use(VueRouter)
 
@@ -39,6 +40,11 @@ Vue.use(VueRouter)
       props:true,
       component: () => import(/* webpackChunkName: "about" */ '../views/Viewer.vue')
     },
+    {
+      path: '/login',
+      name: 'LogIn',
+      component: ()=>import('../views/Login.vue')
+    }
 ]
 
 const router = new VueRouter({
@@ -46,3 +52,11 @@ const router = new VueRouter({
 })
 
 export default router
+
+router.beforeEach((to, from, next) => {
+  if(to.name !== 'LogIn' && to.name !== 'Home' && store.state.token === null){
+    next('/login')
+  }else{
+    next()
+  }
+})

@@ -1,17 +1,24 @@
 <template>
     <div>
     <jpa-data-table :repo="repo" :data-table-props="{
-        'multi-sort':true
-      }" >
-        <template v-slot:footer.page-text="{pageStart,pageStop,itemsLength}">
-            {{pageStart+' '+pageStop+' '+itemsLength}}
+        'multi-sort':true,
+        'footer-props':{
+                'items-per-page-text': '每页显示项数:',
+                'items-per-page-all-text': '所有项'
+                },
+               'no-data-text':'无数据'
+      }">
+        <template v-slot:footer.page-text="{pageStart,
+  pageStop,
+  itemsLength}">
+            {{'从第'+pageStart+'项至第'+pageStop+'项，共'+itemsLength+'项'}}
         </template>
         <template v-slot:item.actions="{ item }">
             <publish-btn v-bind="item"/>
             <del-btn v-bind="item" @deleted="$router.go(0)" />
             <edit-btn  v-bind="item"/>
             <v-btn class="ma-2" @click="editCover(item)" tile outlined color="success">
-                <v-icon left>mdi-trash-can-outline</v-icon> 封面编辑
+                <v-icon left>mdi-book</v-icon> 封面编辑
             </v-btn>
         </template>
         <template v-slot:item.headline="{ item }">

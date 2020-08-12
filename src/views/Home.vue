@@ -6,13 +6,27 @@
                 dark
                 dense
         >
-
+            <v-spacer/>
+            <v-btn text color="white">登录</v-btn>|
+            <v-btn text color="white">注册</v-btn>|
+            <v-menu offset-y offset-x>
+                <template v-slot:activator="{ on, attrs }">
+                    <v-btn text color="white" v-bind="attrs"
+                           v-on="on"><v-icon left>mdi-wechat</v-icon>微信公众平台</v-btn>
+                </template>
+                <v-list>
+                    <v-list-item
+                    >
+                        <v-img :src="require('../../public/img/art_code.jpg')"/>
+                    </v-list-item>
+                </v-list>
+            </v-menu>
         </v-app-bar>
 <v-container fluid :style="{ backgroundImage: 'url(' + require('../../public/img/indexhbg.jpg') + ')','background-size':'cover' }">
     <v-container>
         <v-row no-gutters>
             <v-col class="flex-grow-0">
-                <img src="../../public/img/logo.png">
+                <img :src="require('../../public/img/logo.png')">
             </v-col>
             <v-col class="flex-grow-1">
                 <v-container fluid>
@@ -32,7 +46,7 @@
                             style="background-color: #585858"
                     >
                         <v-list-item style="padding: 0;margin: 0">
-                            <img src="../../public/img/tp1.png">
+                            <img :src="require('../../public/img/tp1.png')">
                         </v-list-item>
                         <v-list-item
                                 v-for="item in warehouseItems"
@@ -48,7 +62,7 @@
                             </v-list-item-content>
                         </v-list-item>
                         <v-list-item style="padding: 0;margin: 0">
-                            <img src="../../public/img/tp2.png">
+                            <img :src="require('../../public/img/tp2.png')">
                         </v-list-item>
                         <v-list-item
                                 v-for="item in browseItems"
@@ -64,7 +78,7 @@
                             </v-list-item-content>
                         </v-list-item>
                         <v-list-item style="padding: 0;margin: 0">
-                            <img src="../../public/img/tp3.png">
+                            <img :src="require('../../public/img/tp3.png')">
                         </v-list-item>
                         <v-list-item
                                 v-for="item in auctionItems"
@@ -80,7 +94,7 @@
                             </v-list-item-content>
                         </v-list-item>
                         <v-list-item style="padding: 0;margin: 0">
-                            <img src="../../public/img/tp4.png">
+                            <img :src="require('../../public/img/tp4.png')">
                         </v-list-item>
                         <v-list-item
                                 v-for="item in childDeptItems"

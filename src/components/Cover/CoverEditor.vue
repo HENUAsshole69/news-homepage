@@ -3,10 +3,7 @@
         <v-system-bar lights-out></v-system-bar>
         <v-carousel
                 :continuous="false"
-                :show-arrows="false"
                 hide-delimiter-background
-                delimiter-icon="mdi-minus"
-                height="150"
         >
             <v-carousel-item
                     v-for="(image, i) in images"
@@ -54,6 +51,8 @@
             },
             async newCover(){
                 console.log(await ArticleClient.postCover(this.id,this.picB64))
+                this.images.length = 0
+                this.loadPic(0)
             }
         }
     }

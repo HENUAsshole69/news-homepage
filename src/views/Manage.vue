@@ -71,14 +71,16 @@
                     <v-col cols="auto" class="flex-grow-1"><router-view></router-view></v-col>
                 </v-row>
             </v-container>
+            <user-setting-dialog :dialog="setting" @close="setting = false"/>
         </div>
     </transition>
 </template>
 
 <script>
+    import UserSettingDialog from "./Management/UserSettingDialog";
     export default {
         name: "Manage",
-        components: {},
+        components: {UserSettingDialog},
         data:()=>({
             setting:false,
             adminTabs:[
@@ -106,7 +108,7 @@
             ) {
                 this.$store.commit('logout')
                 localStorage.removeItem('token')
-                this.$router.go(0)
+                this.$router.push({name:'Home'})
             },
             search:function () {
                 this.$router.push('/search/'+this.keyInput)

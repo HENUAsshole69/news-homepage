@@ -6,7 +6,12 @@
             </v-col>
             <v-col>
                 <jpa-data-table style="padding: 0;margin: 0" :repo="repos[tab - 1]" :data-table-props="{
-        'multi-sort':true
+        'multi-sort':true,
+        'footer-props':{
+                'items-per-page-text': '每页显示项数:',
+                'items-per-page-all-text': '所有项'
+                },
+               'no-data-text':'无数据'
       }"
       :data-table-events="{
         'item-selected':click
@@ -18,8 +23,10 @@
                             <td>{{ item.time }}</td>
                         </tr>
                     </template>
-                    <template v-slot:footer.page-text="{pageStart,pageStop,itemsLength}">
-                        {{pageStart+' '+pageStop+' '+itemsLength}}
+                    <template v-slot:footer.page-text="{pageStart,
+  pageStop,
+  itemsLength}">
+                        {{'从第'+pageStart+'项至第'+pageStop+'项，共'+itemsLength+'项'}}
                     </template>
                 </jpa-data-table>
             </v-col>

@@ -1,6 +1,13 @@
 <template>
     <v-card tile>
-    <jpa-data-iterator :repo="repo">
+    <jpa-data-iterator :repo="repo" :data-table-props="{
+        'multi-sort':true,
+        'footer-props':{
+                'items-per-page-text': '每页显示项数:',
+                'items-per-page-all-text': '所有项'
+                },
+               'no-data-text':'无数据'
+      }">
         <template v-slot:default="{items}">
             <v-container>
                 <v-row>
@@ -9,6 +16,11 @@
                     </v-col>
                 </v-row>
             </v-container>
+        </template>
+        <template v-slot:footer.page-text="{pageStart,
+  pageStop,
+  itemsLength}">
+            {{'从第'+pageStart+'项至第'+pageStop+'项，共'+itemsLength+'项'}}
         </template>
     </jpa-data-iterator>
     </v-card>
