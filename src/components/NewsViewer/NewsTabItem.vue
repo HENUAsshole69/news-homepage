@@ -1,6 +1,6 @@
 <template>
     <v-container fluid>
-        <v-row>
+        <v-row no-gutters>
             <v-col>
                 <cover-viewer v-bind:id="currentNews.toString()" :key="currentNews"/>
             </v-col>
@@ -20,7 +20,7 @@
                     <template v-slot:item="{item}">
                         <tr @mouseover="currentNews = item.id" @click="()=>click(item.id)">
                             <td>{{item.title}}</td>
-                            <td>{{ item.time }}</td>
+                            <td>{{ new Date(item.time).toLocaleDateString() }}</td>
                         </tr>
                     </template>
                     <template v-slot:footer.page-text="{pageStart,

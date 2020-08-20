@@ -16,7 +16,7 @@
             <template v-slot:item="{item}">
                 <tr @click="()=>click(item.id)">
                     <td>{{item.title}}</td>
-                    <td>{{ item.time }}</td>
+                    <td>{{ new Date(item.time).toLocaleDateString() }}</td>
                 </tr>
             </template>
         </jpa-data-table>

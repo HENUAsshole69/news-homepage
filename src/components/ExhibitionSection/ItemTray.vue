@@ -1,5 +1,5 @@
 <template>
-    <v-card tile>
+    <v-card tile flat>
     <jpa-data-iterator :repo="repo" :data-table-props="{
         'multi-sort':true,
         'footer-props':{

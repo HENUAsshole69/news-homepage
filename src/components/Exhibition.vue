@@ -8,7 +8,7 @@
                             <v-img   max-width="227" max-height="175"  :src="require('../../public/img/wz2.png')" />
                         </v-col>
                         <v-col  class="d-flex justify-center"  style="padding-left:0;margin-right: 0">
-                            <v-list>
+                            <v-list outlined elevation="0">
                                 <v-list-item>
                                     <v-list-item-content>
                                         <v-row no-gutters>

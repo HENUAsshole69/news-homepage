@@ -162,27 +162,27 @@ export default {
   data:()=>({
     s:null,
       warehouseItems:[
-          {title:'艺术品介绍',icon:'',id:1},
-          {title:'保存介绍',icon:'',id:2},
-          {title:'海关监管',icon:'',id:3},
+          {title:'艺术品介绍',icon:'mdi-artstation',id:1},
+          {title:'保存介绍',icon:'mdi-library',id:2},
+          {title:'海关监管',icon:'mdi-earth',id:3},
       ],
       browseItems:[
-          {title:'书画展',icon:''},
-          {title:'瓷器展',icon:''},
-          {title:'杂项展',icon:''},
-          {title:'展讯介绍',icon:'',id:4}
+          {title:'书画展',icon:'mdi-camera-burst',path:'/category/EXHIBITION/PAINTING'},
+          {title:'瓷器展',icon:'mdi-flask-empty',path:'/category/EXHIBITION/PORCELAIN'},
+          {title:'杂项展',icon:'mdi-view-parallel',path:'/category/EXHIBITION/MISC'},
+          {title:'展讯介绍',icon:'mdi-information-variant',id:4}
       ],
       auctionItems:[
-          {title:'春秋',icon:''},
-          {title:'望塑',icon:''},
-          {title:'网拍',icon:''},
-          {title:'拍卖厅介绍',icon:'',id:5}
+          {title:'春秋',icon:'mdi-leaf-maple',path:'/category/EXHIBITION/SPRING_AUTUMN'},
+          {title:'望塑',icon:'mdi-eye-outline',path:'/category/EXHIBITION/WANG_SU'},
+          {title:'网拍',icon:'mdi-web',path:'/category/EXHIBITION/ONLINE_AUCTION'},
+          {title:'拍卖厅介绍',icon:'mdi-information-variant',id:5}
       ],
       childDeptItems:[
-          {title:'艺术银行',icon:''},
-          {title:'社会文物登记服务中心',icon:''},
-          {title:'离退+电商',icon:''},
-          {title:'艺术品托管平台',icon:''}
+          {title:'艺术银行',icon:'mdi-bank'},
+          {title:'社会文物登记服务中心',icon:'mdi-web'},
+          {title:'离退+电商',icon:'mdi-web'},
+          {title:'艺术品托管平台',icon:'mdi-web'}
       ]
   }),
     methods:{
@@ -196,6 +196,9 @@ export default {
 
                   this.$router.push('/view/' + id)
               }
+          }
+          if(item.path !== undefined){
+              this.$router.push(item.path)
           }
       }
     }

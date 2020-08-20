@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
-import Home from '../views/Home.vue'
 import store from '../store/index'
 
 Vue.use(VueRouter)
@@ -60,7 +59,11 @@ const router = new VueRouter({
 export default router
 
 router.beforeEach((to, from, next) => {
-  if(to.name !== 'LogIn' && to.name !== 'Home' && to.name !== 'Viewer' && store.state.token === null){
+  if(to.name !== 'LogIn' &&
+      to.name !== 'Home' &&
+      to.name !== 'CategoryBrowser' &&
+      to.name !== 'Viewer' &&
+      store.state.token === null){
     next('/login')
   }else{
     next()
