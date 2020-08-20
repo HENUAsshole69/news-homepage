@@ -17,6 +17,7 @@
     import AdminTable from "../../components/Editor/AdminTable";
     import TypeAndPubRepo from "../../client/TypeAndPubRepo";
     import TypeSelect from "../../components/Editor/TypeSelect";
+    import IndividualRepo from "../../client/IndividualRepo";
     export default {
         name: "ArticleManagement",
         components: {TypeSelect, AdminTable},
@@ -25,7 +26,12 @@
         }),
         methods:{
             repo(){
-                return{ fetch: TypeAndPubRepo(this.type,undefined)}
+                if(this.$store.state.userObj.type === 'ADMIN'){
+                    return{ fetch: TypeAndPubRepo(this.type,undefined)}
+                }else {
+                    return{ fetch: IndividualRepo(this.type)}
+                }
+
             }
         }
     }

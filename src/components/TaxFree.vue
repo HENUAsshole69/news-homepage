@@ -8,7 +8,7 @@
                     <v-img  max-width="227" max-height="175" :src="require('../../public/img/wz1.png')" />
                 </v-col>
                 <v-col  class="d-flex justify-center"  style="padding-left:0;margin-right: 0">
-                    <item-tray :repo="repo"/>
+                    <tax-free-tab :repo="repo"/>
                 </v-col>
             </v-row>
         </v-container>
@@ -18,13 +18,12 @@
 </template>
 
 <script>
-    import TaxFreeViewer from "@/components/TaxFreeSection/TaxFreeViewer";
-    import ItemCard from "@/components/ExhibitionSection/ItemCard";
     import ItemTray from "@/components/ExhibitionSection/ItemTray";
     import TypeAndPubRepo from "@/client/TypeAndPubRepo";
+    import TaxFreeTab from "@/components/TaxFreeSection/TaxFreeTab";
     export default {
         name: "TaxFree",
-        components: {ItemTray},
+        components: {TaxFreeTab},
         data:()=>({
             repo: { fetch: TypeAndPubRepo("TAX_FREE",true)}
         })

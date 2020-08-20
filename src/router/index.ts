@@ -35,6 +35,12 @@ Vue.use(VueRouter)
       component: () => import(/* webpackChunkName: "about" */ '../views/ArticleEdit.vue')
     },
     {
+      path: '/category/:type/:subType',
+      name: 'CategoryBrowser',
+      props:true,
+      component: () => import(/* webpackChunkName: "about" */ '../views/Category/CategoryBrowser.vue')
+    },
+    {
       path: '/view/:id',
       name: 'Viewer',
       props:true,
@@ -54,7 +60,7 @@ const router = new VueRouter({
 export default router
 
 router.beforeEach((to, from, next) => {
-  if(to.name !== 'LogIn' && to.name !== 'Home' && store.state.token === null){
+  if(to.name !== 'LogIn' && to.name !== 'Home' && to.name !== 'Viewer' && store.state.token === null){
     next('/login')
   }else{
     next()

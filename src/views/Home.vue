@@ -7,8 +7,8 @@
                 dense
         >
             <v-spacer/>
-            <v-btn text color="white">登录</v-btn>|
-            <v-btn text color="white">注册</v-btn>|
+            <v-btn text color="white" @click="$router.push('/login')">登录</v-btn>|
+            <v-btn text color="white" @click="$router.push('/login')">注册</v-btn>|
             <v-menu offset-y offset-x>
                 <template v-slot:activator="{ on, attrs }">
                     <v-btn text color="white" v-bind="attrs"
@@ -52,6 +52,7 @@
                                 v-for="item in warehouseItems"
                                 :key="item.title"
                                 link
+                                @click="goTo(item)"
                         >
                             <v-list-item-icon>
                                 <v-icon>{{ item.icon }}</v-icon>
@@ -68,6 +69,7 @@
                                 v-for="item in browseItems"
                                 :key="item.title"
                                 link
+                                @click="goTo(item)"
                         >
                             <v-list-item-icon>
                                 <v-icon>{{ item.icon }}</v-icon>
@@ -84,6 +86,7 @@
                                 v-for="item in auctionItems"
                                 :key="item.title"
                                 link
+                                @click="goTo(item)"
                         >
                             <v-list-item-icon>
                                 <v-icon>{{ item.icon }}</v-icon>
@@ -100,6 +103,7 @@
                                 v-for="item in childDeptItems"
                                 :key="item.title"
                                 link
+                                @click="goTo(item)"
                         >
                             <v-list-item-icon>
                                 <v-icon>{{ item.icon }}</v-icon>
@@ -158,21 +162,21 @@ export default {
   data:()=>({
     s:null,
       warehouseItems:[
-          {title:'艺术品介绍',icon:''},
-          {title:'保存介绍',icon:''},
-          {title:'海关监管',icon:''},
+          {title:'艺术品介绍',icon:'',id:1},
+          {title:'保存介绍',icon:'',id:2},
+          {title:'海关监管',icon:'',id:3},
       ],
       browseItems:[
           {title:'书画展',icon:''},
           {title:'瓷器展',icon:''},
           {title:'杂项展',icon:''},
-          {title:'展讯介绍',icon:''}
+          {title:'展讯介绍',icon:'',id:4}
       ],
       auctionItems:[
           {title:'春秋',icon:''},
           {title:'望塑',icon:''},
           {title:'网拍',icon:''},
-          {title:'拍卖厅介绍',icon:''}
+          {title:'拍卖厅介绍',icon:'',id:5}
       ],
       childDeptItems:[
           {title:'艺术银行',icon:''},
@@ -180,7 +184,21 @@ export default {
           {title:'离退+电商',icon:''},
           {title:'艺术品托管平台',icon:''}
       ]
-  })
+  }),
+    methods:{
+      goTo(item){
+          if(item.id !== undefined) {
+              const id = item.id
+              if (this.$store.state.userObj === null) return this.$router.push('/view/' + id)
+              if (this.$store.state.userObj.type === 'ADMIN') {
+                  this.$router.push('/edit/' + id)
+              } else {
+
+                  this.$router.push('/view/' + id)
+              }
+          }
+      }
+    }
 }
 </script>
 

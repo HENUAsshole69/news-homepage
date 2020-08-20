@@ -18,6 +18,16 @@
                             <type-select @change="type = $event"/>
                         </v-col>
                     </v-row>
+                    <v-row v-if="type === 'EXHIBITION'">
+                        <v-col>
+                            <artifact-sub-type-select @change="subType = $event"/>
+                        </v-col>
+                    </v-row>
+                    <v-row v-if="type === 'AUCTION'">
+                        <v-col>
+                            <auction-sub-type-select @change="subType = $event"/>
+                        </v-col>
+                    </v-row>
                 </v-container>
                 </v-form>
             </v-card-text>
@@ -64,10 +74,12 @@
     import TypeSelect from "./TypeSelect";
     import {ArticleClient} from "../../client/ArticleClient";
     import Quill from "quill";
+    import ArtifactSubTypeSelect from "./ArtifactSubTypeSelect";
+    import AuctionSubTypeSelect from "./AuctionSubTypeSelect";
 
     export default {
         name: "EditorDialog",
-        components: {TypeSelect },
+        components: {AuctionSubTypeSelect, ArtifactSubTypeSelect, TypeSelect },
     data:()=>({
         content:undefined,
         valid:false,
@@ -77,7 +89,8 @@
         first:true,
         second:false,
         title:'',
-        type:null,
+        type:'NEWS',
+        subType:null,
         quill:null,
         loading:false
     }),
@@ -86,11 +99,16 @@
                 this.first = false
                 this.second = true
             },
+
             async submit(){
                 this.loading = true
-                const res = await ArticleClient.postEntry(JSON.stringify(this.quill.getContents()),this.title,this.type)
+                let res = null
+                if(this.subType === null)
+                    res = await ArticleClient.postEntry(JSON.stringify(this.quill.getContents()),this.title,this.type)
+                else
+                    res = await ArticleClient.postEntryWithSubType(JSON.stringify(this.quill.getContents()),this.title,this.type,this.subType)
+                console.log(this.subType)
                 await this.$router.go(-1)
-                console.log(res)
             }
         },
         updated() {

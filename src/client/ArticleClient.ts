@@ -1,11 +1,17 @@
 import AxiosInstance from "./AxiosInstance";
 import { Page } from '@/model/Page';
-import {Article, Type} from "@/model/Article";
+import {Article, SubType, Type} from "@/model/Article";
 
 export class ArticleClient{
 
     static postEntry(article: string, title: string,type: Type){
         return AxiosInstance.post('/article/'+type+'/'+title,article,{
+            headers: { 'Content-Type': 'text/plain' }
+        })
+    }
+
+    static postEntryWithSubType(article: string, title: string,type: Type,subType: SubType){
+        return AxiosInstance.post('/article/'+type+'/'+subType+'/'+title,article,{
             headers: { 'Content-Type': 'text/plain' }
         })
     }

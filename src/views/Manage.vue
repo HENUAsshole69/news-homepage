@@ -10,6 +10,10 @@
                 <v-btn class="ma-2" tile text @click="setting = true">
                     <v-icon left>mdi-cog</v-icon> 用户设置
                 </v-btn>
+                <v-btn outlined @click="$router.push('/')" >
+                    返回主页
+                    <v-icon right>mdi-exit-to-app</v-icon>
+                </v-btn>
                 <v-btn outlined @click="logout">
                     注销
                     <v-icon right>mdi-exit-to-app</v-icon>
@@ -32,17 +36,6 @@
 
                                         <v-list-item-title>主页</v-list-item-title>
                                     </v-list-item>
-
-                                    <v-list-group
-                                            prepend-icon="mdi-flower-poppy"
-                                            value="true"
-                                    >
-                                        <template v-slot:activator>
-                                            <v-list-item-title>新闻</v-list-item-title>
-                                        </template>
-
-
-                                    </v-list-group>
 
                                     <v-list-group
                                             prepend-icon="mdi-account-circle"
@@ -93,7 +86,7 @@
                 {
                     sec:"管理",
                     title: "新建",
-                    icon:'mdi-post',
+                    icon:'mdi-folder-plus',
                     path:"/manage/editor"
                 }
             ],

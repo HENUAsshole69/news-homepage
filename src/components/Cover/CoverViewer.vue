@@ -1,6 +1,5 @@
 <template>
     <v-card
-            elevation="24"
             max-width="444"
             min-width="444"
             class="mx-auto"

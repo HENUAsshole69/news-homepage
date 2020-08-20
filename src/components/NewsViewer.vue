@@ -32,7 +32,7 @@
                             v-for="i in 4"
                             :key="i"
                     >
-                        <news-tab-item :tab="i"/>
+                        <news-tab-item :key="i" :tab="i"/>
                     </v-tab-item>
                 </v-tabs-items>
                 </v-col>
