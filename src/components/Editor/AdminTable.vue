@@ -18,7 +18,7 @@
             <del-btn v-bind="item" @deleted="$router.go(0)" />
             <edit-btn  v-bind="item"/>
             <v-btn class="ma-2" @click="editCover(item)" tile outlined color="success">
-                <v-icon left>mdi-book</v-icon> 封面编辑
+                <v-icon left>mdi-book</v-icon> 图片编辑
             </v-btn>
         </template>
         <template v-slot:item.headline="{ item }">

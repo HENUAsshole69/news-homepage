@@ -7,8 +7,13 @@
                 dense
         >
             <v-spacer/>
-            <v-btn text color="white" @click="$router.push('/login')">登录</v-btn>|
-            <v-btn text color="white" @click="$router.push('/login')">注册</v-btn>|
+            <template v-if="$store.state.userObj === null">
+                <v-btn text color="white" @click="$router.push('/login')">登录</v-btn>|
+                <v-btn text color="white" @click="$router.push('/login')">注册</v-btn>|
+            </template>
+            <template v-else>
+                <v-btn text color="white" @click="$router.push('/manage')">后台</v-btn>|
+            </template>
             <v-menu offset-y offset-x>
                 <template v-slot:activator="{ on, attrs }">
                     <v-btn text color="white" v-bind="attrs"
@@ -173,9 +178,9 @@ export default {
           {title:'展讯介绍',icon:'mdi-information-variant',id:4}
       ],
       auctionItems:[
-          {title:'春秋',icon:'mdi-leaf-maple',path:'/category/EXHIBITION/SPRING_AUTUMN'},
-          {title:'望塑',icon:'mdi-eye-outline',path:'/category/EXHIBITION/WANG_SU'},
-          {title:'网拍',icon:'mdi-web',path:'/category/EXHIBITION/ONLINE_AUCTION'},
+          {title:'春秋',icon:'mdi-leaf-maple',path:'/category/AUCTION/SPRING_AUTUMN'},
+          {title:'望塑',icon:'mdi-eye-outline',path:'/category/AUCTION/WANG_SU'},
+          {title:'网拍',icon:'mdi-web',path:'/category/AUCTION/ONLINE_AUCTION'},
           {title:'拍卖厅介绍',icon:'mdi-information-variant',id:5}
       ],
       childDeptItems:[

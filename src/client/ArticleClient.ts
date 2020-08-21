@@ -22,6 +22,11 @@ export class ArticleClient{
         })
     }
 
+    static delCover(id: number){
+        return AxiosInstance.delete('/article/'+id+'/cover',{
+        })
+    }
+
     static async getCover(id: number,index: number): Promise<string>{
         return AxiosInstance.get('/article/'+id+'/cover/'+index,{ responseType: 'arraybuffer' }).then((response) => {
             const image = btoa(

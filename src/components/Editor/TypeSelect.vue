@@ -23,7 +23,16 @@
                 {value: 'AUCTION',text: '拍卖'}
                 ],
             rules:[v=>v !== undefined || '不可不选']
-        })
+        }),
+        created() {
+            if(this.$store.state.userObj.type !== 'ADMIN'){
+                const arr = this.items.filter(function (word) {
+                     return word.value === 'EXHIBITION' || word.value === 'AUCTION'
+                })
+                this.items.length = 0
+                this.items.push(...arr)
+            }
+        }
     }
 </script>
 

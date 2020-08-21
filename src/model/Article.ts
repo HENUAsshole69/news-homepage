@@ -72,7 +72,6 @@ export class ArticleIndividualManagement implements Article{
 }
 
 @TableItem({
-    additionalHeaders:[{text: "",value: 'actions', order: 2}]
 })
 export class ArticleView implements Article{
     id: number;

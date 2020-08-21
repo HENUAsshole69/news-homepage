@@ -4,6 +4,7 @@
         <v-carousel
                 :continuous="false"
                 hide-delimiter-background
+                :key="key"
         >
             <v-carousel-item
                     v-for="(image, i) in images"
@@ -13,11 +14,16 @@
         </v-carousel>
         <v-list two-line>
             <v-list-item>
-                <pic-input @change="picB64 = $event"/>
+                <v-form v-model="valid">
+                    <pic-input @change="picB64 = $event"/>
+                </v-form>
             </v-list-item>
             <v-list-item>
-                <v-btn @click="newCover">
+                <v-btn :disabled="!valid" @click="newCover">
                     上传
+                </v-btn>
+                <v-btn :disabled="images.length === 0" @click="clearCover">
+                    清空
                 </v-btn>
             </v-list-item>
         </v-list>
@@ -35,7 +41,7 @@
         },
         data:()=>({
             picB64:null,
-            images:[]
+            images:[],key:0,valid:false
         }),
         beforeMount() {
             this.loadPic(0)
@@ -52,7 +58,12 @@
             async newCover(){
                 console.log(await ArticleClient.postCover(this.id,this.picB64))
                 this.images.length = 0
-                this.loadPic(0)
+                await this.loadPic(0)
+            },
+            async clearCover(){
+                await ArticleClient.delCover(this.id)
+                this.images.length = 0
+                this.key++
             }
         }
     }
