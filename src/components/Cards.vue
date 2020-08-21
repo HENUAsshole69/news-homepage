@@ -1,7 +1,7 @@
 <template>
     <v-container fluid :style="{ backgroundImage: 'url(' + require('../../public/img/wjc_bg_02.jpg') + ')','background-size':'cover' }">
-        <v-row>
-            <v-col class="">
+        <v-row class="d-flex justify-center">
+            <v-col lg="8">
                 <v-container>
                     <v-row>
                         <v-col class="d-flex justify-center" style="padding-right:0;margin-right: 0">

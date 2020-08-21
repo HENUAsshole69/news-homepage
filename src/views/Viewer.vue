@@ -1,36 +1,34 @@
 <template>
     <div>
-        <v-app-bar
-                color="white"
-                dense
-                flat
-        >
-            <v-btn icon @click="$router.go(-1)">
-                <v-icon>mdi-arrow-left</v-icon>
-            </v-btn>
-
-            <v-toolbar-title>{{obj.title}}</v-toolbar-title>
-
-            <v-spacer></v-spacer>
-
-        </v-app-bar>
-        <v-divider/>
-        <v-container>
-            <v-row>
-                <v-col>
-                    <div ref="editor" style="height: 100%" :key="content"></div>
-                </v-col>
-            </v-row>
-        </v-container>
-
+        <Frame>
+            <v-container>
+                <v-row  class="d-flex justify-center">
+                    <v-col md="10" lg="8" sm="11">
+                        <v-card>
+                            <v-card-title class="headline">{{obj !== null?obj.title:''}}</v-card-title>
+                            <v-divider/>
+                            <v-container style="background-color: white">
+                                <v-row>
+                                    <v-col>
+                                        <div ref="editor" style="height: 100%" :key="content"></div>
+                                    </v-col>
+                                </v-row>
+                            </v-container>
+                        </v-card>
+                    </v-col>
+                </v-row>
+            </v-container>
+        </Frame>
     </div>
 </template>
 
 <script>
     import {ArticleClient} from "../client/ArticleClient";
     import Quill from "quill";
+    import Frame from "./Frame";
     export default {
         name: "Viewer",
+        components: {Frame},
         props:{
             id: String
         },

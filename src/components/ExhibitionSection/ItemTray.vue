@@ -1,6 +1,6 @@
 <template>
-    <v-card tile flat>
-    <jpa-data-iterator :repo="repo" :data-table-props="{
+    <v-card tile flat  style="padding: 0;margin: 0">
+    <jpa-data-iterator  style="padding: 0;margin: 0" :repo="repo" :data-table-props="{
         'multi-sort':true,
         'footer-props':{
                 'items-per-page-text': '每页显示项数:',

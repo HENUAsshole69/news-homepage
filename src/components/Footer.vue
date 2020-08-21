@@ -1,7 +1,7 @@
 <template>
-    <v-container fluid :style="{ 'background-color':'#636363','background-size':'cover' }">
-        <v-row>
-            <v-col class="">
+    <v-container fluid :style="{ 'background-color':'#424242','background-size':'cover' }">
+        <v-row class="d-flex justify-center">
+            <v-col lg="8">
                 <v-container>
                     <v-row>
                         <v-col class="text d-flex justify-center" style="padding-right:0;margin-right: 0;">

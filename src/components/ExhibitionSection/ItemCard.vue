@@ -1,11 +1,11 @@
 <template>
-    <v-card :rounded="'0'" height="100px" width="120px" style="overflow: hidden"  @click="click">
+    <v-card :rounded="'0'" height="120px" width="150px" style="overflow: hidden"  @click="click">
         <v-img
                 :src="img"
                 class="white--text align-end"
                 gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                max-width="120px"
-                max-height="100px"
+                max-width="150px"
+                max-height="120px"
         >
             <v-card-title>{{title}}</v-card-title>
         </v-img>

@@ -94,6 +94,11 @@
         quill:null,
         loading:false
     }),
+        created() {
+            if(this.$store.state.userObj.type !== 'ADMIN'){
+                this.type = 'EXHIBITION'
+            }
+        },
         methods:{
             toEdit(){
                 this.first = false

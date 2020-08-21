@@ -3,6 +3,8 @@
             max-width="444"
             min-width="444"
             class="mx-auto"
+            flat
+            style="padding: 1em"
     >
         <v-carousel
                 :continuous="false"

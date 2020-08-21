@@ -31,6 +31,7 @@
                 })
                 this.items.length = 0
                 this.items.push(...arr)
+                this.val = 'EXHIBITION'
             }
         }
     }

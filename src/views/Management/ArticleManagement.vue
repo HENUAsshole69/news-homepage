@@ -31,7 +31,11 @@
                 }else {
                     return{ fetch: IndividualRepo(this.type)}
                 }
-
+            }
+        },
+        created() {
+            if(this.$store.state.userObj.type !== 'ADMIN'){
+                this.type = 'EXHIBITION'
             }
         }
     }

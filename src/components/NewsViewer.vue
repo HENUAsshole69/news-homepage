@@ -4,10 +4,10 @@
             tile
     >
         <v-list-item>
-            <v-list-item-content>
-                <v-row no-gutters>
-                <v-col class="overline mb-5"><h3>信息公开</h3></v-col>
-                <v-col>
+            <v-list-item-content  style="padding: 0;margin: 0">
+                <v-row no-gutters  style="padding: 0;margin: 0">
+                <v-col class="overline my-2"><h3>信息公开</h3></v-col>
+                <v-col style="padding: 0;margin: 0">
                     <v-tabs
                             background-color="white"
                             color="brown"
@@ -24,9 +24,9 @@
             </v-list-item-content>
         </v-list-item>
         <v-list-item>
-            <v-container fluid>
+            <v-container fluid  style="padding: 0;margin: 0">
             <v-row no-gutter>
-                <v-col>
+                <v-col  style="padding: 0;margin: 0">
                 <v-tabs-items v-model="tab">
                     <v-tab-item
                             v-for="i in 4"

@@ -1,54 +1,15 @@
 <template>
     <div>
-        <v-app-bar
-                app
-                color="black"
-                dark
-                dense
-        >
-            <v-spacer/>
-            <template v-if="$store.state.userObj === null">
-                <v-btn text color="white" @click="$router.push('/login')">登录</v-btn>|
-                <v-btn text color="white" @click="$router.push('/login')">注册</v-btn>|
-            </template>
-            <template v-else>
-                <v-btn text color="white" @click="$router.push('/manage')">后台</v-btn>|
-            </template>
-            <v-menu offset-y offset-x>
-                <template v-slot:activator="{ on, attrs }">
-                    <v-btn text color="white" v-bind="attrs"
-                           v-on="on"><v-icon left>mdi-wechat</v-icon>微信公众平台</v-btn>
-                </template>
-                <v-list>
-                    <v-list-item
-                    >
-                        <v-img :src="require('../../public/img/art_code.jpg')"/>
-                    </v-list-item>
-                </v-list>
-            </v-menu>
-        </v-app-bar>
-<v-container fluid :style="{ backgroundImage: 'url(' + require('../../public/img/indexhbg.jpg') + ')','background-size':'cover' }">
-    <v-container>
-        <v-row no-gutters>
-            <v-col class="flex-grow-0">
-                <img :src="require('../../public/img/logo.png')">
-            </v-col>
-            <v-col class="flex-grow-1">
-                <v-container fluid>
-                    <v-row no-gutters>
-                        <div class="my-2">
-                            <v-btn text color="white">首页</v-btn>
-                        </div>
-                    </v-row>
-                </v-container>
-            </v-col>
-        </v-row>
-        <v-row>
-                <v-col class="flex-grow-0">
+        <Frame>
+    <v-container style="padding: 0;margin: 0;">
+        <v-row no-gutters class="d-flex justify-center">
+            <v-col lg="8">
+                <v-row style="padding-top: 0;margin-top: 0">
+                <v-col  class="flex-grow-0">
                     <v-list
                             dense
                             rounded
-                            style="background-color: #585858"
+                            style="background-color: #424242"
                     >
                         <v-list-item style="padding: 0;margin: 0">
                             <img :src="require('../../public/img/tp1.png')">
@@ -129,15 +90,17 @@
 
                     </v-row>
                 </v-col>
+                </v-row>
+            </v-col>
         </v-row>
     </v-container>
-</v-container>
-        <tax-free/>
-        <browse/>
-        <Cards/>
-        <HonorWall/>
-        <Footer/>
-        <LegalInfo/>
+            <template v-slot:footer>
+                <tax-free/>
+                <browse/>
+                <Cards/>
+                <HonorWall/>
+            </template>
+        </Frame>
     </div>
 </template>
 
@@ -148,15 +111,14 @@ import TaxFree from "@/components/TaxFree";
 import Browse from "@/components/Exhibition";
 import Cards from "@/components/Cards";
 import HonorWall from "@/components/HonorWall";
-import Footer from "@/components/Footer";
-import LegalInfo from "@/components/LegalInfo";
 import HomeCarousel from "@/components/Home/HomeCarousel";
+import Frame from "./Frame";
+import {auctionItems, browseItems, childDeptItems, warehouseItems} from "./MenuItem";
 export default {
   name: 'Home',
   components: {
+      Frame,
       HomeCarousel,
-      LegalInfo,
-      Footer,
       HonorWall,
       Cards,
       Browse,
@@ -166,29 +128,10 @@ export default {
   },
   data:()=>({
     s:null,
-      warehouseItems:[
-          {title:'艺术品介绍',icon:'mdi-artstation',id:1},
-          {title:'保存介绍',icon:'mdi-library',id:2},
-          {title:'海关监管',icon:'mdi-earth',id:3},
-      ],
-      browseItems:[
-          {title:'书画展',icon:'mdi-camera-burst',path:'/category/EXHIBITION/PAINTING'},
-          {title:'瓷器展',icon:'mdi-flask-empty',path:'/category/EXHIBITION/PORCELAIN'},
-          {title:'杂项展',icon:'mdi-view-parallel',path:'/category/EXHIBITION/MISC'},
-          {title:'展讯介绍',icon:'mdi-information-variant',id:4}
-      ],
-      auctionItems:[
-          {title:'春秋',icon:'mdi-leaf-maple',path:'/category/AUCTION/SPRING_AUTUMN'},
-          {title:'望塑',icon:'mdi-eye-outline',path:'/category/AUCTION/WANG_SU'},
-          {title:'网拍',icon:'mdi-web',path:'/category/AUCTION/ONLINE_AUCTION'},
-          {title:'拍卖厅介绍',icon:'mdi-information-variant',id:5}
-      ],
-      childDeptItems:[
-          {title:'艺术银行',icon:'mdi-bank'},
-          {title:'社会文物登记服务中心',icon:'mdi-web'},
-          {title:'离退+电商',icon:'mdi-web'},
-          {title:'艺术品托管平台',icon:'mdi-web'}
-      ]
+      warehouseItems,
+      browseItems,
+      auctionItems,
+      childDeptItems
   }),
     methods:{
       goTo(item){
