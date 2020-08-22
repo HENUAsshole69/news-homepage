@@ -3,7 +3,6 @@
             cycle
             height="400"
             hide-delimiter-background
-            show-arrows-on-hover
     >
         <v-carousel-item
                 v-for="(image, i) in images"
@@ -12,6 +11,9 @@
         >
             <v-img height="100%" :src="image.img"
                    class="white--text align-end"
+                   contain
+                   max-height="400"
+                   aspect-ratio="1.7778"
                    gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)">
                 <v-card-title>{{image.title}}</v-card-title>
             </v-img>
@@ -51,5 +53,4 @@
 </script>
 
 <style scoped>
-
 </style>

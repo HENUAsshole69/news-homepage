@@ -24,6 +24,9 @@
         <template v-slot:item.headline="{ item }">
             <headline-checkbox :id="item.id" v-model="item.headline"/>
         </template>
+        <template v-slot:item.time="{ item }">
+            {{ new Date(item.time).toLocaleDateString() }}
+        </template>
     </jpa-data-table>
         <cover-editor-dialog :key="id" :dialog="dialog" :id="id" @close="dialog = false"/>
     </div>

@@ -32,11 +32,14 @@
             event:'update'
         },
         mounted() {
+            const Font = Quill.import('formats/font');
+            Font.whitelist = ['SimSun', 'SimHei','Microsoft-YaHei','KaiTi','FangSong','Arial','Times-New-Roman','sans-serif'];
+            Quill.register(Font, true);
             this.quill = new Quill(this.$refs['editor'],{
                 theme: 'snow',
                 modules: {
                     'toolbar': [
-                        [{ 'font': ['sofia', 'slabo', 'roboto', 'inconsolata', 'ubuntu'] }, { 'size': [] }],
+                        [{ 'font': ['SimSun', 'SimHei','Microsoft-YaHei','KaiTi','FangSong','Arial','Times-New-Roman','sans-serif'] }, { 'size': [] }],
                         [ 'bold', 'italic', 'underline', 'strike' ],
                         [{ 'color': [] }, { 'background': [] }],
                         [{ 'script': 'super' }, { 'script': 'sub' }],

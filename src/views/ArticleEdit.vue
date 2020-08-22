@@ -10,7 +10,7 @@
                 <v-btn dark :disabled="loading" text @click="save">保存</v-btn>
             </v-toolbar-items>
         </v-toolbar>
-        <v-container>
+        <v-container v-show="!loading">
             <v-row>
                 <v-col>
                     <div ref="editor" style="height: 100%"></div>
@@ -43,12 +43,15 @@
         }),
         async mounted() {
             if(this.$refs['editor'] === undefined) return;
+            const Font = Quill.import('formats/font');
+            Font.whitelist = ['SimSun', 'SimHei','Microsoft-YaHei','KaiTi','FangSong','Arial','Times-New-Roman','sans-serif'];
+            Quill.register(Font, true);
             this.quill = new Quill(this.$refs['editor'],{
                 scrollingContainer:this.$refs['editor'],
                 theme: 'snow',
                 modules: {
                     'toolbar': [
-                        [{ 'font': ['sofia', 'slabo', 'roboto', 'inconsolata', 'ubuntu'] }, { 'size': [] }],
+                        [{ 'font': ['SimSun', 'SimHei','Microsoft-YaHei','KaiTi','FangSong','Arial','Times-New-Roman','sans-serif'] }, { 'size': [] }],
                         [ 'bold', 'italic', 'underline', 'strike' ],
                         [{ 'color': [] }, { 'background': [] }],
                         [{ 'script': 'super' }, { 'script': 'sub' }],
@@ -60,9 +63,11 @@
                     ],
                 }
             })
+            this.loading= true;
             this.content = JSON.stringify((await ArticleClient.getArticle(this.id)).data)
             this.quill.setContents(JSON.parse(this.content))
             this.article = await ArticleClient.getArticleDto(this.id)
+            this.loading = false
         },
         methods:{
             save:async function () {

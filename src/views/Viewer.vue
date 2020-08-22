@@ -7,6 +7,11 @@
                         <v-card>
                             <v-card-title class="headline">{{obj !== null?obj.title:''}}</v-card-title>
                             <v-divider/>
+                            <v-progress-linear
+                                    v-show="loading"
+                                    indeterminate
+                                    color="cyan"
+                            ></v-progress-linear>
                             <v-container style="background-color: white">
                                 <v-row>
                                     <v-col>
@@ -34,15 +39,19 @@
         },
         data:()=>({
             content: undefined,
-            obj:null
+            obj:null,
+            loading:false
         }),
         async mounted() {
-
+            this.loading = true
             this.content = JSON.stringify((await ArticleClient.getArticle(this.id)).data)
             this.obj = await ArticleClient.getArticleDto(this.id)
-
+            this.loading = false
         },
         updated() {
+            const Font = Quill.import('formats/font');
+            Font.whitelist = ['SimSun', 'SimHei','Microsoft-YaHei','KaiTi','FangSong','Arial','Times-New-Roman','sans-serif'];
+            Quill.register(Font, true);
             this.quill = new Quill(this.$refs['editor'], {
                 scrollingContainer: this.$refs['editor'],
                 theme: 'bubble',

@@ -7,7 +7,7 @@
                         <v-layout align-center justify-center>
                             <v-flex class="login-form text-xs-center">
                                 <div class="display-1 mb-3">
-                                    <v-icon class="mr-2" large="large"> mdi-bank-outline</v-icon> <h3 style="display: inline-block">社会文物登记服务中心</h3>
+                                    <v-icon class="mr-2" large="large"> mdi-bank-outline</v-icon> <h3 style="display: inline-block">新闻管理系统</h3>
                                 </div>
                                 <v-card light="light">
                                     <v-progress-linear

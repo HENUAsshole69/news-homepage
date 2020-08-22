@@ -55,10 +55,15 @@
             ],
             loading:true
         }),
+        mounted() {
+            const repo = this.repos[this.tab - 1]
+            this.currentNews = repo.fetch({
+                page:1,
+                size:1,
+                sort:[]
+            }).content[0].id
+        },
         methods:{
-            repo(){
-                return{ fetch: TypeAndPubRepo("NEWS",true)}
-            },
             click(id){
                 this.$router.push("/view/"+id)
             }
