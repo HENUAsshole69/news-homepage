@@ -97,6 +97,7 @@
             <template v-slot:footer>
                 <tax-free/>
                 <browse/>
+                <auction/>
                 <Cards/>
                 <HonorWall/>
             </template>
@@ -114,9 +115,11 @@ import HonorWall from "@/components/HonorWall";
 import HomeCarousel from "@/components/Home/HomeCarousel";
 import Frame from "./Frame";
 import {auctionItems, browseItems, childDeptItems, warehouseItems} from "./MenuItem";
+import Auction from "../components/Auction";
 export default {
   name: 'Home',
   components: {
+      Auction,
       Frame,
       HomeCarousel,
       HonorWall,
