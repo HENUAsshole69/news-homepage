@@ -55,13 +55,13 @@
             ],
             loading:true
         }),
-        mounted() {
+        async mounted() {
             const repo = this.repos[this.tab - 1]
-            this.currentNews = repo.fetch({
-                page:1,
+            this.currentNews = (await repo.fetch({
+                page:0,
                 size:1,
-                sort:[]
-            }).content[0].id
+                sort: {orders:[]}
+            })).content[0].id
         },
         methods:{
             click(id){

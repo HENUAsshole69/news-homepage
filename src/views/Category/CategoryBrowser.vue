@@ -1,7 +1,10 @@
 <template>
-                <v-content>
-
-                            <jpa-data-iterator class="mh-100" :repo="{ fetch: SubTypeRepo(this.type,this.subType)}" :data-table-props="{
+    <Frame>
+                <v-card>
+                    <v-list style="padding-top: 0;margin-top: 0">
+                        <v-list-item>
+                            <v-list-item-content>
+                                <jpa-data-iterator class="mh-100" :repo="{ fetch: SubTypeRepo(this.type,this.subType)}" :data-table-props="{
         'multi-sort':true,
         'footer-props':{
                 'items-per-page-text': '每页显示项数:',
@@ -9,30 +12,34 @@
                 },
                'no-data-text':'无数据'
       }">
-                                <template v-slot:default="{items}">
-                                        <v-row  class="fill-height overflow-auto">
+                                    <template v-slot:default="{items}">
+                                        <v-row  class="">
                                             <div style="padding: 1em" :key="item.id" v-for="item in items" >
                                                 <category-item-card v-bind="item"/>
                                             </div>
                                         </v-row>
-                                </template>
-                                <template v-slot:footer.page-text="{pageStart,
+                                    </template>
+                                    <template v-slot:footer.page-text="{pageStart,
   pageStop,
   itemsLength}">
-                                    {{'从第'+pageStart+'项至第'+pageStop+'项，共'+itemsLength+'项'}}
-                                </template>
-                            </jpa-data-iterator>
-
-                </v-content>
+                                        {{'从第'+pageStart+'项至第'+pageStop+'项，共'+itemsLength+'项'}}
+                                    </template>
+                                </jpa-data-iterator>
+                            </v-list-item-content>
+                        </v-list-item>
+                    </v-list>
+                </v-card>
+    </Frame>
 </template>
 
 <script>
     import JpaDataIterator from "@lu1kaifeng/jpa-data-table/src/components/JpaDataIterator";
     import SubTypeRepo from "../../client/SubTypeRepo";
     import CategoryItemCard from "./CategoryItemCard";
+    import Frame from "../Frame";
     export default {
         name: "CategoryBrowser",
-        components: {CategoryItemCard,JpaDataIterator},
+        components: {Frame, CategoryItemCard,JpaDataIterator},
         props:{
             type:String,
             subType:String
