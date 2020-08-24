@@ -1,16 +1,8 @@
 <template>
-    <v-card
-            max-width="444"
-            min-width="444"
-            class="mx-auto"
-            flat
-            style="padding: 1em"
-    >
         <v-carousel
-                :continuous="true"
-                :show-arrows="true"
-                hide-delimiter-background
                 cycle
+                :show-arrows="false"
+                hide-delimiter-background
                 height="300"
         >
             <v-carousel-item
@@ -19,13 +11,12 @@
                     :src="image"
             ></v-carousel-item>
         </v-carousel>
-    </v-card>
 </template>
 
 <script>
     import {ArticleClient} from "../../client/ArticleClient";
     export default {
-        name: "CoverViewer",
+        name: "CategoryCoverViewer",
         props:{
             id: String
         },

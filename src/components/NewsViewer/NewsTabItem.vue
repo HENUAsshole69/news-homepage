@@ -11,7 +11,8 @@
                 'items-per-page-text': '每页显示项数:',
                 'items-per-page-all-text': '所有项'
                 },
-               'no-data-text':'无数据'
+               'no-data-text':'无数据',
+               'hide-default-footer':true
       }"
       :data-table-events="{
         'item-selected':click
@@ -37,7 +38,7 @@
 <script>
     import JpaDataTable from "@lu1kaifeng/jpa-data-table/src/components/JpaDataTable";
     import TypeAndPubRepo from "../../client/TypeAndPubRepo";
-    import CoverViewer from "@/components/Cover/CoverViewer";
+    import CoverViewer from "../../components/Cover/CoverViewer";
     export default {
         name: "NewsTabItem",
         components:{CoverViewer, JpaDataTable},

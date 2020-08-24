@@ -1,36 +1,36 @@
 <template>
     <Frame>
         <v-container>
-            <v-row class="d-flex justify-center">
+            <v-row no-gutters class="d-flex justify-center">
                 <v-col xl="7">
                     <v-sheet width="900">
-                        <v-container fluid>
+                        <v-container fluid style="padding: 0;margin: 0">
                             <v-row no-gutters class="d-flex justify-center">
                                 <v-col>
-                                    <jpa-data-iterator style="bottom: 0;width: 100%" :repo="{ fetch: SubTypeRepo(this.type,this.subType)}" :data-table-props="{
+                                    <jpa-data-table :repo="
+
+                { fetch: TypeAndPubRepo(type,true)}" :data-table-props="{
         'multi-sort':true,
         'footer-props':{
                 'items-per-page-text': '每页显示项数:',
                 'items-per-page-all-text': '所有项',
-                'items-per-page-options':[12]
+                'items-per-page-options':[10,20,30]
                 },
-               'no-data-text':'无数据'
+               'no-data-text':'无数据',
+
       }">
-                                        <template v-slot:default="{items}">
-                                            <v-container>
-                                                <v-row>
-                                                    <v-col class="flex-grow-0" :key="item.id" v-for="item in items">
-                                                        <category-item-card v-bind="item"/>
-                                                    </v-col>
-                                                </v-row>
-                                            </v-container>
-                                        </template>
                                         <template v-slot:footer.page-text="{pageStart,
   pageStop,
   itemsLength}">
                                             {{'从第'+pageStart+'项至第'+pageStop+'项，共'+itemsLength+'项'}}
                                         </template>
-                                    </jpa-data-iterator>
+                                        <template v-slot:item="{item}">
+                                            <tr @click="()=>click(item.id)">
+                                                <td>{{item.title}}</td>
+                                                <td>{{ new Date(item.time).toLocaleDateString() }}</td>
+                                            </tr>
+                                        </template>
+                                    </jpa-data-table>
                                 </v-col>
                             </v-row>
                         </v-container>
@@ -43,13 +43,12 @@
 </template>
 
 <script>
-    import JpaDataIterator from "@lu1kaifeng/jpa-data-table/src/components/JpaDataIterator";
-    import SubTypeRepo from "../../client/SubTypeRepo";
-    import CategoryItemCard from "./CategoryItemCard";
+    import JpaDataTable from "@lu1kaifeng/jpa-data-table/src/components/JpaDataTable";
     import Frame from "../Frame";
+    import TypeAndPubRepo from '../../client/TypeAndPubRepo';
     export default {
-        name: "CategoryBrowser",
-        components: {Frame, CategoryItemCard,JpaDataIterator},
+        name: "ListBrowser",
+        components: {Frame,JpaDataTable},
         props:{
             type:String,
             subType:String
@@ -57,7 +56,7 @@
         data:()=>({
         }),
         methods:{
-            SubTypeRepo
+            TypeAndPubRepo
         }
     }
 </script>

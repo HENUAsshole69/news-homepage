@@ -9,7 +9,7 @@
                         <v-list-item class="text-center"
                                      :key="i"
                                      color="pink"
-                                     style="padding-left: 1em"
+                                     style="padding-left: 0.5em;padding-right: 0.5em"
                                      @click="()=>goTo(item)"
                         >
                             <v-list-item-content>
@@ -23,6 +23,20 @@
                 </v-list-item-group>
             </v-list>
             </v-card>
+            <v-card tile style="margin-top: 1em">
+                <v-list style="padding-top: 0;padding-bottom: 0" dense>
+                        <v-list-item class="text-center"
+                                     style="padding-left: 1em"
+                                     @click="$vuetify.goTo(0)"
+                        >
+                            <v-list-item-content>
+                                <div><v-icon large>mdi-chevron-up</v-icon>
+                                    <v-list-item-title>返回顶部</v-list-item-title>
+                                </div>
+                            </v-list-item-content>
+                        </v-list-item>
+                </v-list>
+            </v-card>
         </div>
     <v-app-bar
             app
@@ -33,6 +47,7 @@
         <v-spacer/>
         <template v-if="$store.state.userObj === null">
             <v-btn text color="white" @click="$router.push('/login')">登录</v-btn>|
+            <v-btn text color="white" @click="$router.push('/login/true')">注册</v-btn>|
         </template>
         <template v-else>
             <v-btn text color="white" @click="$router.push('/manage')">后台</v-btn>|
@@ -62,7 +77,7 @@
                 <v-container fluid>
                     <v-row no-gutters>
                         <div class="my-2">
-                            <v-btn @click="$router.push('/')" text color="white">首页</v-btn>
+                            <v-btn @click="$router.push('/')" text color="white" class="top-menu">首页</v-btn>
                         </div>
                         <div class="my-2">
                             <v-menu open-on-hover offset-y>
@@ -71,24 +86,23 @@
                                             text color="white"
                                             v-bind="attrs"
                                             v-on="on"
+                                            class="top-menu"
                                     >
                                         保税仓储
                                     </v-btn>
                                 </template>
 
-                                <v-list>
+                                <v-list color="#29395a">
                                     <v-list-item
                                             v-for="item in warehouseItems"
                                             :key="item.title"
                                             link
+                                            dense
                                             @click="goTo(item)"
                                     >
-                                        <v-list-item-icon>
-                                            <v-icon>{{ item.icon }}</v-icon>
-                                        </v-list-item-icon>
 
                                         <v-list-item-content>
-                                            <v-list-item-title>{{ item.title }}</v-list-item-title>
+                                            <v-list-item-title class="menu-text">{{ item.title }}</v-list-item-title>
                                         </v-list-item-content>
                                     </v-list-item>
                                 </v-list>
@@ -101,24 +115,22 @@
                                             text color="white"
                                             v-bind="attrs"
                                             v-on="on"
+                                            class="top-menu"
                                     >
                                         展览展示
                                     </v-btn>
                                 </template>
 
-                                <v-list>
+                                <v-list color="#29395a">
                                     <v-list-item
                                             v-for="item in browseItems"
                                             :key="item.title"
                                             link
                                             @click="goTo(item)"
+                                            dense
                                     >
-                                        <v-list-item-icon>
-                                            <v-icon>{{ item.icon }}</v-icon>
-                                        </v-list-item-icon>
-
                                         <v-list-item-content>
-                                            <v-list-item-title >{{ item.title }}</v-list-item-title>
+                                            <v-list-item-title  class="menu-text" >{{ item.title }}</v-list-item-title>
                                         </v-list-item-content>
                                     </v-list-item>
                                 </v-list>
@@ -131,24 +143,23 @@
                                             text color="white"
                                             v-bind="attrs"
                                             v-on="on"
+                                            class="top-menu"
                                     >
                                         拍卖
                                     </v-btn>
                                 </template>
 
-                                <v-list>
+                                <v-list color="#29395a">
                                     <v-list-item
                                             v-for="item in auctionItems"
                                             :key="item.title"
                                             link
+                                            dense
                                             @click="goTo(item)"
                                     >
-                                        <v-list-item-icon>
-                                            <v-icon>{{ item.icon }}</v-icon>
-                                        </v-list-item-icon>
 
                                         <v-list-item-content>
-                                            <v-list-item-title >{{ item.title }}</v-list-item-title>
+                                            <v-list-item-title  class="menu-text" >{{ item.title }}</v-list-item-title>
                                         </v-list-item-content>
                                     </v-list-item>
                                 </v-list>
@@ -161,28 +172,51 @@
                                             text color="white"
                                             v-bind="attrs"
                                             v-on="on"
+                                            class="top-menu"
                                     >
                                         子机构职能
                                     </v-btn>
                                 </template>
 
-                                <v-list>
+                                <v-list color="#29395a">
                                     <v-list-item
                                             v-for="item in childDeptItems"
                                             :key="item.title"
                                             link
+                                            dense
                                             @click="goTo(item)"
                                     >
-                                        <v-list-item-icon>
-                                            <v-icon>{{ item.icon }}</v-icon>
-                                        </v-list-item-icon>
 
                                         <v-list-item-content>
-                                            <v-list-item-title >{{ item.title }}</v-list-item-title>
+                                            <v-list-item-title   class="menu-text">{{ item.title }}</v-list-item-title>
                                         </v-list-item-content>
                                     </v-list-item>
                                 </v-list>
                             </v-menu>
+                        </div>
+                        <div class="my-2">
+                            <v-btn
+                                    text color="white"
+                                    class="top-menu"
+                            >
+                               信息公开
+                            </v-btn>
+                        </div>
+                        <div class="my-2">
+                            <v-btn
+                                    text color="white"
+                                    class="top-menu"
+                            >
+                                关于我们
+                            </v-btn>
+                        </div>
+                        <div class="my-2">
+                            <v-btn
+                                    text color="white"
+                                    class="top-menu"
+                            >
+                                中英切换
+                            </v-btn>
                         </div>
                     </v-row>
                 </v-container>
@@ -212,9 +246,9 @@
             auctionItems,
             childDeptItems,
             floatingOptions:[
-                {icon:'mdi-open-in-app',text:'我要展览',path:'/manage/editor'},
+                {icon:'mdi-open-in-app',text:'我要展览展示',path:'/manage/editor'},
                 {icon:'mdi-gavel',text:'我要拍卖',path:'/manage/editor'},
-                {icon:'mdi-bank',text:'免税仓储',path:'/manage/editor'},
+                {icon:'mdi-bank',text:'我要保税仓储',path:'/manage/editor'},
                 {icon:'mdi-account',text:'文物登记',path:'/manage/editor'}
             ],
             selected:0
@@ -240,5 +274,15 @@
 </script>
 
 <style lang="scss" scoped>
-    $list-dense-content-padding : 0
+    $list-dense-content-padding : 0;
+    .menu-text:hover{
+        color: deeppink;
+    }
+    .menu-text{
+        color: white;
+    }
+    .top-menu{
+        margin-left: -0.5em;
+        margin-right: -0.5em;
+    }
 </style>

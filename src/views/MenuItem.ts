@@ -6,14 +6,12 @@ export const warehouseItems=[
     export const browseItems = [
     {title:'书画展',icon:'mdi-camera-burst',path:'/category/EXHIBITION/PAINTING'},
     {title:'瓷器展',icon:'mdi-flask-empty',path:'/category/EXHIBITION/PORCELAIN'},
-    {title:'杂项展',icon:'mdi-view-parallel',path:'/category/EXHIBITION/MISC'},
-    {title:'展讯介绍',icon:'mdi-information-variant',id:4}
+    {title:'杂项展',icon:'mdi-view-parallel',path:'/category/EXHIBITION/MISC'}
 ];
     export const auctionItems=[
     {title:'春秋',icon:'mdi-leaf-maple',path:'/category/AUCTION/SPRING_AUTUMN'},
     {title:'望塑',icon:'mdi-eye-outline',path:'/category/AUCTION/WANG_SU'},
-    {title:'网拍',icon:'mdi-web',path:'/category/AUCTION/ONLINE_AUCTION'},
-    {title:'拍卖厅介绍',icon:'mdi-information-variant',id:5}
+    {title:'网拍',icon:'mdi-web',path:'/category/AUCTION/ONLINE_AUCTION'}
 ];
 export const  childDeptItems = [
     {title:'艺术银行',icon:'mdi-bank'},

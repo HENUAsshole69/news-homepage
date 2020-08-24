@@ -10,8 +10,12 @@
                 <v-col style="padding: 0;margin: 0">
                     <v-tabs
                             background-color="white"
-                            color="brown"
+                            color="white"
                             right
+                            height="2em"
+                            class="tab"
+                            hide-slider
+                            active-class="brown-tab"
                             v-model="tab"
                     >
                         <v-tab>活动</v-tab>
@@ -39,6 +43,9 @@
             </v-row>
             </v-container>
         </v-list-item>
+        <v-row style="padding: 0;margin: 0;background-color: #f4f4f4" class="d-flex justify-center" no-gutter>
+            <button @click="$router.push('/list/'+types[tab])"><v-col class="flex-grow-0 load-more">查看更多</v-col></button>
+        </v-row>
     </v-card>
 </template>
 
@@ -48,11 +55,23 @@
         name: "NewsViewer",
         components: {NewsTabItem},
         data:()=>({
-            tab:0
+            tab:0,
+            types: [
+                'ACTIVITY',
+                'POLICY',
+                'NEWS',
+                'ANNOUNCE'
+            ]
         })
     }
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+    @import "../load-more.scss";
+    .brown-tab{
+        background-color: #c9a035;
+    }
+    .tab{
+        padding: 0.5em;
+    }
 </style>

@@ -1,15 +1,15 @@
 <template>
-    <v-card :rounded="'0'" height="120px" width="150px" style="overflow: hidden"  @click="click">
+    <v-sheet elevation="10" style="overflow: hidden;cursor: pointer;"  @click="click">
         <v-img
                 :src="img"
                 class="white--text align-end"
                 gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                max-width="150px"
-                max-height="120px"
+                min-width="180px"
+                aspect-ratio="1.7778"
         >
             <v-card-title>{{title}}</v-card-title>
         </v-img>
-    </v-card>
+    </v-sheet>
 </template>
 
 <script>
@@ -27,7 +27,7 @@
         },
         methods:{
             click(){
-                this.$router.push("/view/"+this.id)
+                this.$router.push("/category/detail/"+this.id)
             }
         }
     }

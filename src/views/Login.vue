@@ -65,6 +65,12 @@
     export default Vue.extend( {
         name: "login",
         components: {},
+        props:{
+            reg: {
+                type:String,
+                default:''
+            }
+        },
         data:()=>({
             user:{
                 name:'',
@@ -88,6 +94,9 @@
                 router.push('/manage')
             }else{
                 this.ok = true;
+            }
+            if(this.reg === 'true'){
+                this.options.isLoggingIn = false
             }
         },
         methods:{

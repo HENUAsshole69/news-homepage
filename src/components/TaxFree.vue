@@ -1,5 +1,5 @@
 <template>
-    <v-container fluid :style="{ backgroundImage: 'url(' + require('../../public/img/yjc_list_bg.jpg') + ')','background-size':'cover' }">
+    <v-container fluid :style="{ backgroundImage: 'url(' + require('../../public/img/wjc_list_bg.jpg') + ')','background-size':'cover','padding-top':'5em','padding-bottom':'5em' }">
         <v-row class="d-flex justify-center">
             <v-col lg="8">
         <v-container>
@@ -31,5 +31,5 @@
 </script>
 
 <style scoped>
-
+    @import "../load-more.scss";
 </style>

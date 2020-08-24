@@ -9,7 +9,7 @@
                     <v-list
                             dense
                             rounded
-                            style="background-color: #424242"
+                            style="background-color: #182235"
                     >
                         <v-list-item style="padding: 0;margin: 0">
                             <img :src="require('../../public/img/tp1.png')">
@@ -19,13 +19,14 @@
                                 :key="item.title"
                                 link
                                 @click="goTo(item)"
+                                class="tile"
                         >
                             <v-list-item-icon>
-                                <v-icon>{{ item.icon }}</v-icon>
+                                <v-icon color="#848a89">{{ item.icon }}</v-icon>
                             </v-list-item-icon>
 
                             <v-list-item-content>
-                                <v-list-item-title style="color: lightgray">{{ item.title }}</v-list-item-title>
+                                <v-list-item-title style="color: #848a89">{{ item.title }}</v-list-item-title>
                             </v-list-item-content>
                         </v-list-item>
                         <v-list-item style="padding: 0;margin: 0">
@@ -36,13 +37,14 @@
                                 :key="item.title"
                                 link
                                 @click="goTo(item)"
+                                class="tile"
                         >
                             <v-list-item-icon>
-                                <v-icon>{{ item.icon }}</v-icon>
+                                <v-icon  color="#848a89">{{ item.icon }}</v-icon>
                             </v-list-item-icon>
 
                             <v-list-item-content>
-                                <v-list-item-title style="color: lightgray">{{ item.title }}</v-list-item-title>
+                                <v-list-item-title style="color: #848a89">{{ item.title }}</v-list-item-title>
                             </v-list-item-content>
                         </v-list-item>
                         <v-list-item style="padding: 0;margin: 0">
@@ -53,13 +55,14 @@
                                 :key="item.title"
                                 link
                                 @click="goTo(item)"
+                                class="tile"
                         >
                             <v-list-item-icon>
-                                <v-icon>{{ item.icon }}</v-icon>
+                                <v-icon  color="#848a89">{{ item.icon }}</v-icon>
                             </v-list-item-icon>
 
                             <v-list-item-content>
-                                <v-list-item-title style="color: lightgray">{{ item.title }}</v-list-item-title>
+                                <v-list-item-title style="color: #848a89">{{ item.title }}</v-list-item-title>
                             </v-list-item-content>
                         </v-list-item>
                         <v-list-item style="padding: 0;margin: 0">
@@ -70,13 +73,14 @@
                                 :key="item.title"
                                 link
                                 @click="goTo(item)"
+                                class="tile"
                         >
                             <v-list-item-icon>
-                                <v-icon>{{ item.icon }}</v-icon>
+                                <v-icon  color="#848a89">{{ item.icon }}</v-icon>
                             </v-list-item-icon>
 
                             <v-list-item-content>
-                                <v-list-item-title style="color: lightgray">{{ item.title }}</v-list-item-title>
+                                <v-list-item-title style="color: #848a89">{{ item.title }}</v-list-item-title>
                             </v-list-item-content>
                         </v-list-item>
                     </v-list>
@@ -157,5 +161,7 @@ export default {
 </script>
 
 <style lang="scss">
-
+    .tile:hover {
+        background-color: #29395a;
+    }
 </style>

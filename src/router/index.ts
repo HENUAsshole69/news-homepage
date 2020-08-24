@@ -34,10 +34,22 @@ Vue.use(VueRouter)
       component: () => import(/* webpackChunkName: "about" */ '../views/ArticleEdit.vue')
     },
     {
+      path: '/category/detail/:id',
+      name: 'CategoryDetail',
+      props:true,
+      component: () => import(/* webpackChunkName: "about" */ '../views/Category/CategoryDetail.vue')
+    },
+    {
       path: '/category/:type/:subType',
       name: 'CategoryBrowser',
       props:true,
       component: () => import(/* webpackChunkName: "about" */ '../views/Category/CategoryBrowser.vue')
+    },
+    {
+      path: '/list/:type',
+      name: 'ListBrowser',
+      props:true,
+      component: () => import(/* webpackChunkName: "about" */ '../views/List/ListBrowser.vue')
     },
     {
       path: '/view/:id',
@@ -46,8 +58,9 @@ Vue.use(VueRouter)
       component: () => import(/* webpackChunkName: "about" */ '../views/Viewer.vue')
     },
     {
-      path: '/login',
+      path: '/login/:reg?',
       name: 'LogIn',
+      props:true,
       component: ()=>import('../views/Login.vue')
     }
 ]
@@ -61,7 +74,9 @@ export default router
 router.beforeEach((to, from, next) => {
   if(to.name !== 'LogIn' &&
       to.name !== 'Home' &&
+      to.name !== 'ListBrowser' &&
       to.name !== 'CategoryBrowser' &&
+      to.name !== 'CategoryDetail' &&
       to.name !== 'Viewer' &&
       store.state.token === null){
     next('/login')
