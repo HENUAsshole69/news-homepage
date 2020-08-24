@@ -1,15 +1,23 @@
 <template>
-    <v-sheet elevation="10" :rounded="'0'" style="overflow: hidden;cursor: pointer;"  @click="click">
-        <v-img
-                :src="img"
-                class="white--text align-end"
-                gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                min-width="260px"
-                aspect-ratio="1.7778"
-        >
-            <v-card-title>{{title}}</v-card-title>
-        </v-img>
-    </v-sheet>
+    <v-container class="zoom" fluid style="margin: 0;padding: 0;backface-visibility: hidden;cursor: pointer;">
+        <v-row no-gutters style="margin: 0;padding: 0;">
+            <v-sheet  elevation="5" style="overflow: hidden;"  @click="click">
+                <v-img
+                        :src="img"
+                        class="white--text align-end"
+                        gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                        min-width="260px"
+                        aspect-ratio="1.7778"
+                >
+                </v-img>
+            </v-sheet>
+        </v-row>
+        <v-row  no-gutters style="margin: 0;padding: 0;">
+            <v-col class="text-center">
+                {{title}}
+            </v-col>
+        </v-row>
+    </v-container>
 </template>
 
 <script>
@@ -34,5 +42,12 @@
 </script>
 
 <style scoped>
-
+    .zoom {
+        transition: transform .2s; /* Animation */
+        margin: 0 auto;
+    }
+    .zoom:hover {
+        transform: scale(1.1);
+        color: red/* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    }
 </style>
