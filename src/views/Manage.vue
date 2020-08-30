@@ -10,7 +10,7 @@
                 <v-btn class="ma-2" tile text @click="setting = true">
                     <v-icon left>mdi-cog</v-icon> 用户设置
                 </v-btn>
-                <v-btn outlined @click="$router.push('/')" >
+                <v-btn outlined @click="$router.push('/')" style="margin-right: 1em" >
                     返回主页
                     <v-icon right>mdi-exit-to-app</v-icon>
                 </v-btn>
