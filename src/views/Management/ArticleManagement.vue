@@ -7,7 +7,7 @@
         </v-row>
         <v-row>
             <v-col>
-                <admin-table :repo="repo()" :key="type" />
+                <admin-table :repo="repo()" :key="type+i" @update="i++"/>
             </v-col>
         </v-row>
     </v-container>
@@ -22,7 +22,8 @@
         name: "ArticleManagement",
         components: {TypeSelect, AdminTable},
         data:()=>({
-            type:'NEWS'
+            type:'NEWS',
+            i:0
         }),
         methods:{
             repo(){
