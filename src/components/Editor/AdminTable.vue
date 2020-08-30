@@ -13,6 +13,9 @@
   itemsLength}">
             {{'从第'+pageStart+'项至第'+pageStop+'项，共'+itemsLength+'项'}}
         </template>
+        <template v-slot:item.subType="{ item }">
+            {{TypeToDisplayMap[item.subType]}}
+        </template>
         <template v-slot:item.actions="{ item }">
             <publish-btn v-bind="item" v-if="$store.state.userObj.type === 'ADMIN'"/>
             <del-btn v-bind="item" @deleted="$router.go(0)" />
@@ -34,7 +37,7 @@
 
 <script>
     import JpaDataTable from "@lu1kaifeng/jpa-data-table/src/components/JpaDataTable";
-    import TypeAndPubRepo from "../../client/TypeAndPubRepo";
+    import {TypeToDisplayMap} from "../../model/TypeToDisplayMap";
     import PublishBtn from "./Admin/PublishBtn";
     import DelBtn from "./Admin/DelBtn";
     import EditBtn from "./Admin/EditBtn";
@@ -46,7 +49,8 @@
         components:{HeadlineCheckbox, CoverEditorDialog, EditBtn, DelBtn, PublishBtn, JpaDataTable},
         data:()=>({
             dialog:false,
-            id:null
+            id:null,
+            TypeToDisplayMap
         }),
         props:{
             repo:Object

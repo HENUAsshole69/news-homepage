@@ -8,6 +8,7 @@ export interface Article {
     time: string;
     type: Type;
     headline: boolean;
+    subType?: SubType | Type;
 }
 
 export type Type = 'NEWS' |
@@ -26,20 +27,23 @@ export type SubType = 'PAINTING' |
     'ONLINE_AUCTION'
 
 @TableItem({
-    additionalHeaders:[{text: "",value: 'actions', order: 2}]
+    additionalHeaders:[{text: "",value: 'actions', order: 4}]
 })
 export class ArticleManagement implements Article{
     id: number;
     published: boolean;
     @Header({text: "标题", order: 0})
     title: string;
-    @Header({text: "时间", order: 1})
+    @Header({text: "时间", order: 2})
     time: string;
-    @Header({text: "轮播", order: 2})
+    @Header({text: "轮播", order: 3})
     headline: boolean
+    @Header({text: "类型", order: 1})
+    subType?: SubType | Type;
 
     type: Type;
     constructor(article: Article) {
+        if(article.subType != undefined) this.subType = article.subType; else this.subType = article.type
         this.id = article.id
         this.published = article.published
         this.time = article.time
@@ -49,25 +53,29 @@ export class ArticleManagement implements Article{
     }
 }
 @TableItem({
-    additionalHeaders:[{text: "",value: 'actions', order: 2}]
+    additionalHeaders:[{text: "",value: 'actions', order: 3}]
 })
 export class ArticleIndividualManagement implements Article{
     id: number;
     published: boolean;
     @Header({text: "标题", order: 0})
     title: string;
-    @Header({text: "时间", order: 1})
+    @Header({text: "时间", order: 2})
     time: string;
     headline: boolean
+    @Header({text: "类型", order: 1})
+    subType?: (SubType | Type);
 
     type: Type;
     constructor(article: Article) {
+
         this.id = article.id
         this.published = article.published
         this.time = article.time
         this.title = article.title
         this.type = article.type
         this.headline = article.headline
+        if(article.subType != undefined) this.subType = article.subType; else this.subType = article.type
     }
 }
 
