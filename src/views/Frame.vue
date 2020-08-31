@@ -60,7 +60,7 @@
             <v-list>
                 <v-list-item
                 >
-                    <v-img :src="require('../../public/img/art_code.jpg')"/>
+                    <v-img max-width="133px" max-height="133px" :src="require('../../public/img/art_code.jpg')"/>
                 </v-list-item>
             </v-list>
         </v-menu>

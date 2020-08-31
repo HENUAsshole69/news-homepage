@@ -3,7 +3,7 @@
         <Frame>
             <v-container>
                 <v-row  class="d-flex justify-center">
-                    <v-col md="10" lg="8" sm="11">
+                    <v-col md="10" lg="8" sm="11" v-if="false">
                         <category-cover-viewer v-bind:id="id" :key="id"/>
                     </v-col>
                 </v-row>

@@ -8,9 +8,11 @@
                             <v-card
                                     class="mx-auto"
                                     max-width="400"
+                                    style="overflow: hidden;cursor: pointer;"
                             >
                                 <v-img
-                                        class="white--text align-end"
+                                        @click="$router.push('/view/'+6)"
+                                        class="zoom white--text align-end"
                                         height="200px"
                                         :src="require('../../public/img/zxm1.jpg')"
                                 >
@@ -28,9 +30,10 @@
                             <v-card
                                     class="mx-auto"
                                     max-width="400"
+                                    style="overflow: hidden;cursor: pointer;"
                             >
                                 <v-img
-                                        class="white--text align-end"
+                                        class="zoom white--text align-end"
                                         height="200px"
                                         :src="require('../../public/img/zxm2.jpg')"
                                 >
@@ -52,9 +55,10 @@
                             <v-card
                                     class="mx-auto"
                                     max-width="400"
+                                    style="overflow: hidden;cursor: pointer;"
                             >
                                 <v-img
-                                        class="white--text align-end"
+                                        class="zoom white--text align-end"
                                         height="200px"
                                         :src="require('../../public/img/zxm3.png')"
                                 >
@@ -74,9 +78,10 @@
                             <v-card
                                     class="mx-auto"
                                     max-width="400"
+                                    style="overflow: hidden;cursor: pointer;"
                             >
                                 <v-img
-                                        class="white--text align-end"
+                                        class="zoom white--text align-end"
                                         height="200px"
                                         :src="require('../../public/img/zxm4.png')"
                                 >
@@ -105,5 +110,12 @@
 </script>
 
 <style scoped>
-
+    .zoom {
+        transition: transform .2s; /* Animation */
+        margin: 0 auto;
+    }
+    .zoom:hover {
+        transform: scale(1.1);
+        color: red/* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    }
 </style>
