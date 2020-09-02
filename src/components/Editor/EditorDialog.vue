@@ -1,62 +1,73 @@
 <template>
-<div>
-    <v-dialog v-model="first" persistent max-width="600px" @close="$router.go(-1)">
-        <v-card>
-            <v-card-title>
-                <span class="headline">新增</span>
-            </v-card-title>
-            <v-card-text>
-                <v-form v-model="valid">
-                <v-container>
-                    <v-row>
-                        <v-col>
-                            <v-text-field v-model="title" label="标题" :rules="nonEmptyRules" hide-details="auto"></v-text-field>
-                        </v-col>
-                    </v-row>
-                    <v-row>
-                        <v-col>
-                            <type-select @change="type = $event"/>
-                        </v-col>
-                    </v-row>
-                    <v-row v-if="type === 'EXHIBITION'">
-                        <v-col>
-                            <artifact-sub-type-select @change="subType = $event"/>
-                        </v-col>
-                    </v-row>
-                    <v-row v-if="type === 'AUCTION'">
-                        <v-col>
-                            <auction-sub-type-select @change="subType = $event"/>
-                        </v-col>
-                    </v-row>
-                </v-container>
-                </v-form>
-            </v-card-text>
-            <v-card-actions>
-                <v-spacer></v-spacer>
-                <v-btn color="blue darken-1" text @click="$router.go(-1)">关闭</v-btn>
-                <v-btn color="blue darken-1" text :disabled="!valid" @click="toEdit">下一步</v-btn>
-            </v-card-actions>
-        </v-card>
-    </v-dialog>
-    <v-dialog v-model="second" fullscreen hide-overlay transition="dialog-bottom-transition">
-        <v-card>
-            <v-toolbar dark color="primary">
-                <v-btn icon dark @click="$router.go(-1)">
-                    <v-icon>mdi-close</v-icon>
-                </v-btn>
-                <v-toolbar-title>编辑</v-toolbar-title>
-                <v-spacer></v-spacer>
-                <v-toolbar-items>
-                    <v-btn dark text @click="submit">完成</v-btn>
-                </v-toolbar-items>
-            </v-toolbar>
-            <v-list three-line subheader v-if="!loading">
-                <v-list-item>
-                    <v-list-item-content>
-                        <div ref="editor"></div>
-                    </v-list-item-content>
-                </v-list-item>
-            </v-list>
+    <div>
+        <v-dialog v-model="first" persistent max-width="600px" @close="$router.go(-1)">
+            <v-card>
+                <v-card-title>
+                    <span class="headline">新增</span>
+                </v-card-title>
+                <v-card-text>
+                    <v-form v-model="valid">
+                        <v-container>
+                            <v-row>
+                                <v-col>
+                                    <v-text-field v-model="title" label="标题" :rules="nonEmptyRules" hide-details="auto"></v-text-field>
+                                </v-col>
+                            </v-row>
+                            <v-row>
+                                <v-col>
+                                    <type-select @change="type = $event"/>
+                                </v-col>
+                            </v-row>
+                            <v-row v-if="type === 'EXHIBITION'">
+                                <v-col>
+                                    <artifact-sub-type-select @change="subType = $event"/>
+                                </v-col>
+                            </v-row>
+                            <v-row v-if="type === 'AUCTION'">
+                                <v-col>
+                                    <auction-sub-type-select @change="subType = $event"/>
+                                </v-col>
+                            </v-row>
+                            <v-row v-if="type === 'TAX_FREE'">
+                                <v-col>
+                                    <v-text-field :rules="nonEmptyRules" label="编号" v-model="registry"/>
+                                </v-col>
+                                <v-col>
+                                    <v-text-field :rules="nonEmptyRules" label="类型" v-model="wareHouseType"/>
+                                </v-col>
+                                <v-col>
+                                    <v-text-field :rules="nonEmptyRules" label="估值" v-model="value"/>
+                                </v-col>
+                            </v-row>
+                        </v-container>
+                    </v-form>
+                </v-card-text>
+                <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn color="blue darken-1" text @click="$router.go(-1)">关闭</v-btn>
+                    <v-btn color="blue darken-1" text :disabled="!valid" @click="toEdit">下一步</v-btn>
+                </v-card-actions>
+            </v-card>
+        </v-dialog>
+        <v-dialog v-model="second" fullscreen hide-overlay transition="dialog-bottom-transition">
+            <v-card>
+                <v-toolbar dark color="primary">
+                    <v-btn icon dark @click="$router.go(-1)">
+                        <v-icon>mdi-close</v-icon>
+                    </v-btn>
+                    <v-toolbar-title>编辑</v-toolbar-title>
+                    <v-spacer></v-spacer>
+                    <v-toolbar-items>
+                        <v-btn dark text @click="submit">完成</v-btn>
+                    </v-toolbar-items>
+                </v-toolbar>
+                <v-list three-line subheader v-if="!loading">
+                    <v-list-item>
+                        <v-list-item-content>
+                            <div ref="editor"></div>
+                        </v-list-item-content>
+                    </v-list-item>
+                </v-list>
                 <div class="center" v-else>
                     <v-progress-circular
                             :size="50"
@@ -65,9 +76,9 @@
                             class="center"
                     ></v-progress-circular>
                 </div>
-        </v-card>
-    </v-dialog>
-</div>
+            </v-card>
+        </v-dialog>
+    </div>
 </template>
 
 <script>
@@ -81,20 +92,23 @@
     export default {
         name: "EditorDialog",
         components: {AuctionSubTypeSelect, ArtifactSubTypeSelect, TypeSelect },
-    data:()=>({
-        content:undefined,
-        valid:false,
-        nonEmptyRules:[
-            value => !!value || '不得为空',
-        ],
-        first:true,
-        second:false,
-        title:'',
-        type:'NEWS',
-        subType:null,
-        quill:null,
-        loading:false
-    }),
+        data:()=>({
+            content:undefined,
+            valid:false,
+            nonEmptyRules:[
+                value => !!value || '不得为空',
+            ],
+            first:true,
+            second:false,
+            title:'',
+            type:'NEWS',
+            subType:null,
+            quill:null,
+            loading:false,
+            wareHouseType:undefined,
+            value:undefined,
+            registry:undefined
+        }),
         created() {
             if(this.$store.state.userObj.type !== 'ADMIN'){
                 this.type = 'EXHIBITION'
@@ -109,10 +123,16 @@
             async submit(){
                 this.loading = true
                 let res = null
-                if(this.subType === null)
-                    res = await ArticleClient.postEntry(JSON.stringify(this.quill.getContents()),this.title,this.type)
-                else
-                    res = await ArticleClient.postEntryWithSubType(JSON.stringify(this.quill.getContents()),this.title,this.type,this.subType)
+                if(this.wareHouseType!==undefined &&
+                    this.value!==undefined &&
+                    this.registry!==undefined){
+                    res = await ArticleClient.postEntryTaxFree(this.quill.getContents(),this.title,this.wareHouseType,this.value,this.registry)
+                }else {
+                    if (this.subType === null)
+                        res = await ArticleClient.postEntry(JSON.stringify(this.quill.getContents()), this.title, this.type)
+                    else
+                        res = await ArticleClient.postEntryWithSubType(JSON.stringify(this.quill.getContents()), this.title, this.type, this.subType)
+                }
                 console.log(this.subType)
                 await this.$router.go(-1)
             }

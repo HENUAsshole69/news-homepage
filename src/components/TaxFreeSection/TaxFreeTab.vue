@@ -17,8 +17,11 @@
             </template>
             <template v-slot:item="{item}">
                 <tr @click="()=>click(item.id)" style="cursor: pointer">
+                    <td>{{item.registry}}</td>
                     <td>{{item.title}}</td>
                     <td>{{ new Date(item.time).toLocaleDateString() }}</td>
+                    <td>{{item.value}}</td>
+                    <td>{{item.wareHouseType}}</td>
                 </tr>
             </template>
         </jpa-data-table>
@@ -40,7 +43,7 @@
         },
     methods:{
         click(id){
-            this.$router.push("/view/"+id)
+            this.$router.push("/category/detail/"+id)
         }
     }
     }

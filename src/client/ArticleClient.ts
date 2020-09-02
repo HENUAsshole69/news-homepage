@@ -16,6 +16,12 @@ export class ArticleClient{
         })
     }
 
+    static postEntryTaxFree(article: string, title: string,type: string,value: string,registry: string){
+        return AxiosInstance.post('/article/'+title+'/registry/'+registry+'/value/'+value+'/type/'+type,article,{
+            headers: { 'Content-Type': 'text/plain' }
+        })
+    }
+
     static postCover(id: number, picB64: string){
         return AxiosInstance.post('/article/'+id+'/cover',picB64,{
             headers: { 'Content-Type': 'application/octet-stream' }

@@ -9,6 +9,9 @@ export interface Article {
     type: Type;
     headline: boolean;
     subType?: SubType | Type;
+    registry?: string;
+    value?: string;
+    wareHouseType?: string;
 }
 
 export type Type = 'NEWS' |
@@ -84,11 +87,17 @@ export class ArticleIndividualManagement implements Article{
 export class ArticleView implements Article{
     id: number;
     published: boolean;
-    @Header({text: "标题", order: 0})
+    @Header({text: "名称", order: 1})
     title: string;
-    @Header({text: "时间", order: 1})
+    @Header({text: "日期", order: 2})
     time: string;
-    headline: boolean
+    headline: boolean;
+    @Header({text: "艺术品编码", order: 0})
+    registry: string | undefined;
+    @Header({text: "估值", order: 3})
+    value: string | undefined;
+    @Header({text: "类型", order: 4})
+    wareHouseType: string | undefined
     type: Type;
     constructor(article: Article) {
         this.id = article.id
@@ -97,5 +106,8 @@ export class ArticleView implements Article{
         this.title = article.title
         this.type = article.type
         this.headline = article.headline
+        this.registry = article.registry
+        this.value = article.value
+        this.wareHouseType = article.wareHouseType
     }
 }

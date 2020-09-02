@@ -3,11 +3,6 @@
         <Frame>
             <v-container>
                 <v-row  class="d-flex justify-center">
-                    <v-col md="10" lg="8" sm="11" v-if="false">
-                        <category-cover-viewer v-bind:id="id" :key="id"/>
-                    </v-col>
-                </v-row>
-                <v-row  class="d-flex justify-center">
                     <v-col md="10" lg="8" sm="11">
                         <v-card>
                             <v-progress-linear
@@ -15,12 +10,53 @@
                                     indeterminate
                                     color="cyan"
                             ></v-progress-linear>
-                            <template v-if="obj !== null">
-                                <v-card-title>
-                                    {{obj.title}}
-                                </v-card-title>
-                                <v-divider/>
-                            </template>
+                            <v-container>
+                            <v-row no-gutters dense  class="d-flex justify-start">
+                                <v-col v-if="true" cols="6">
+                                    <category-cover-viewer :id="id" :key="id"/>
+                                </v-col>
+                                <v-col>
+                                    <template v-if="obj !== null">
+                                        <v-card-title>
+                                            {{obj.title}}
+                                        </v-card-title>
+                                        <v-list
+                                        >
+
+                                            <v-list-item>
+                                                <v-list-item-content>
+                                                    <v-list-item-title>编号</v-list-item-title>
+                                                    <v-list-item-subtitle>{{obj.registry}}</v-list-item-subtitle>
+                                                </v-list-item-content>
+                                            </v-list-item>
+
+
+                                            <v-list-item>
+                                                <v-list-item-content>
+                                                    <v-list-item-title>估值</v-list-item-title>
+                                                    <v-list-item-subtitle>{{obj.value}}</v-list-item-subtitle>
+                                                </v-list-item-content>
+                                            </v-list-item>
+
+                                            <v-list-item>
+                                                <v-list-item-content>
+                                                    <v-list-item-title>类型</v-list-item-title>
+                                                    <v-list-item-subtitle>{{obj.wareHouseType}}</v-list-item-subtitle>
+                                                </v-list-item-content>
+                                            </v-list-item>
+
+                                            <v-list-item>
+                                                <v-list-item-content>
+                                                    <v-list-item-title>日期</v-list-item-title>
+                                                    <v-list-item-subtitle>{{new Date(obj.time).toLocaleDateString()}}</v-list-item-subtitle>
+                                                </v-list-item-content>
+                                            </v-list-item>
+                                        </v-list>
+                                    </template>
+                                </v-col>
+                            </v-row>
+                            </v-container>
+                            <v-divider/>
                             <v-container style="background-color: white">
                                 <v-row>
                                     <v-col>
