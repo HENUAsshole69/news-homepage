@@ -22,7 +22,7 @@ export class StaticPageClient {
         return (await AxiosInstance.get('/static/page/list',{  })).data as StaticPage[]
     }
     static updateEntry(article: string, id: number){
-        return AxiosInstance.post('/static/page/'+id,article,{
+        return AxiosInstance.put('/static/page/'+id,article,{
             headers: { 'Content-Type': 'text/plain' }
         })
     }

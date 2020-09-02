@@ -31,6 +31,8 @@
 <script>
     import {ArticleClient} from "../client/ArticleClient";
     import Quill from "quill";
+    import  ImageResize  from 'quill-image-resize-module';
+    import { ImageDrop } from 'quill-image-drop-module';
     export default {
         name: "ArticleEdit",
         props:{
@@ -46,10 +48,16 @@
             const Font = Quill.import('formats/font');
             Font.whitelist = ['SimSun', 'SimHei','Microsoft-YaHei','KaiTi','FangSong','Arial','Times-New-Roman','sans-serif'];
             Quill.register(Font, true);
+            Quill.register('modules/imageResize', ImageResize);
+            Quill.register('modules/imageDrop', ImageDrop);
             this.quill = new Quill(this.$refs['editor'],{
                 scrollingContainer:this.$refs['editor'],
                 theme: 'snow',
                 modules: {
+                    imageDrop: true,
+                    imageResize: {
+                        modules: [ 'Resize', 'DisplaySize', 'Toolbar' ]
+                    },
                     'toolbar': [
                         [{ 'font': ['SimSun', 'SimHei','Microsoft-YaHei','KaiTi','FangSong','Arial','Times-New-Roman','sans-serif'] }, { 'size': [] }],
                         [ 'bold', 'italic', 'underline', 'strike' ],
