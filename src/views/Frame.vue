@@ -258,12 +258,7 @@
                 if(item.id !== undefined) {
                     const id = item.id
                     if (this.$store.state.userObj === null) return this.$router.push('/view/' + id)
-                    if (this.$store.state.userObj.type === 'ADMIN') {
-                        this.$router.push('/edit/' + id)
-                    } else {
-
-                        this.$router.push('/view/' + id)
-                    }
+                    this.$router.push('/view/static/' + id)
                 }
                 if(item.path !== undefined){
                     this.$router.push(item.path)

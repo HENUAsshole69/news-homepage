@@ -58,6 +58,27 @@
                                             </v-list-item-icon>
                                         </v-list-item>
                                     </v-list-group>
+                                    <v-list-group
+                                            prepend-icon="mdi-account-circle"
+                                            :value="false"
+                                            v-if="this.$store.state.userObj.type === 'ADMIN'"
+                                    >
+                                        <template v-slot:activator>
+                                            <v-list-item-title>页面编辑</v-list-item-title>
+                                        </template>
+
+                                        <v-list-item
+                                                v-for="(tab, i) in pagesTab"
+                                                :key="i"
+                                                link
+                                                @click="$router.push('/edit/static/'+tab.id)"
+                                        >
+                                            <v-list-item-title v-text="tab.title"></v-list-item-title>
+                                            <v-list-item-icon>
+                                                <v-icon >mdi-file</v-icon>
+                                            </v-list-item-icon>
+                                        </v-list-item>
+                                    </v-list-group>
                                 </v-list>
                             </v-navigation-drawer >
                         </div>
@@ -72,6 +93,7 @@
 
 <script>
     import UserSettingDialog from "./Management/UserSettingDialog";
+    import {StaticPageClient} from "../client/StaticPageClient";
     export default {
         name: "Manage",
         components: {UserSettingDialog},
@@ -90,6 +112,9 @@
                     icon:'mdi-folder-plus',
                     path:"/manage/editor"
                 }
+            ],
+            pagesTab:[
+
             ],
             searchDialog:false,
             keyInput:'',
@@ -112,10 +137,10 @@
                 this.currentTab = tab
             }
         },
-        beforeMount() {
+        async beforeMount() {
             // eslint-disable-next-line @typescript-eslint/no-this-alias
             const model = this
-            const crumbItem= [
+            const crumbItem = [
                 {
                     text: '主页',
                     disabled: false,
@@ -138,6 +163,7 @@
             ]
             this.crumbItem.length = 0;
             this.crumbItem.push(...crumbItem)
+            if(this.$store.state.userObj.type === 'ADMIN')this.pagesTab = await StaticPageClient.getStaticPageDtoList()
         },
         beforeUpdate:function () {
             // eslint-disable-next-line @typescript-eslint/no-this-alias

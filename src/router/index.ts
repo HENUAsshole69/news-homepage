@@ -28,6 +28,12 @@ Vue.use(VueRouter)
       ]
     },
     {
+      path: '/edit/static/:id',
+      name: 'StaticEdit',
+      props:true,
+      component: () => import(/* webpackChunkName: "about" */ '../views/StaticEdit.vue')
+    },
+    {
       path: '/edit/:id',
       name: 'ArticleEdit',
       props:true,
@@ -50,6 +56,12 @@ Vue.use(VueRouter)
       name: 'ListBrowser',
       props:true,
       component: () => import(/* webpackChunkName: "about" */ '../views/List/ListBrowser.vue')
+    },
+    {
+      path: '/view/static/:id',
+      name: 'StaticViewer',
+      props:true,
+      component: () => import(/* webpackChunkName: "about" */ '../views/StaticViewer.vue')
     },
     {
       path: '/view/:id',
@@ -77,6 +89,7 @@ router.beforeEach((to, from, next) => {
       to.name !== 'ListBrowser' &&
       to.name !== 'CategoryBrowser' &&
       to.name !== 'CategoryDetail' &&
+      to.name !== 'StaticViewer' &&
       to.name !== 'Viewer' &&
       store.state.token === null){
     next('/login')
