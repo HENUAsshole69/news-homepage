@@ -19,7 +19,7 @@
       }"
                 >
                     <template v-slot:item="{item}">
-                        <tr @mouseover="currentNews = item.id" @click="()=>click(item.id)">
+                        <tr @mouseover="currentNews = item.id" style="cursor: pointer" @click="()=>click(item.id)">
                             <td>{{item.title}}</td>
                             <td>{{ new Date(item.time).toLocaleDateString() }}</td>
                         </tr>

@@ -13,7 +13,7 @@
     </v-sheet>
     </v-row>
         <v-row  no-gutters style="margin: 0;padding: 0;">
-            <v-col class="text-center">
+            <v-col class="text-center" style="overflow: hidden;width: 180px;white-space: nowrap;">
                 {{title}}
             </v-col>
         </v-row>

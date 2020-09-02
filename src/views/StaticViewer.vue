@@ -5,13 +5,14 @@
                 <v-row  class="d-flex justify-center">
                     <v-col md="10" lg="8" sm="11">
                         <v-card>
-                            <v-card-title class="headline">{{obj !== null?obj.title:''}}</v-card-title>
-                            <v-divider/>
                             <v-progress-linear
                                     v-show="loading"
                                     indeterminate
                                     color="cyan"
                             ></v-progress-linear>
+                            <v-card-title class="headline">{{obj !== null?obj.title:''}}</v-card-title>
+                            <v-divider v-show="!loading"/>
+
                             <v-container style="background-color: white">
                                 <v-row>
                                     <v-col>

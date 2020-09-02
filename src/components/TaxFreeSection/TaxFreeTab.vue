@@ -16,7 +16,7 @@
                 {{'从第'+pageStart+'项至第'+pageStop+'项，共'+itemsLength+'项'}}
             </template>
             <template v-slot:item="{item}">
-                <tr @click="()=>click(item.id)">
+                <tr @click="()=>click(item.id)" style="cursor: pointer">
                     <td>{{item.title}}</td>
                     <td>{{ new Date(item.time).toLocaleDateString() }}</td>
                 </tr>

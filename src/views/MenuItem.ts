@@ -17,8 +17,8 @@ export const auctionItems=[
 ];
 export const  childDeptItems = [
     {title:'艺术银行',icon:'mdi-bank',id:6},
-    {title:'社会文物登记服务中心',icon:'mdi-web'},
-    {title:'离退+电商',icon:'mdi-web'},
-    {title:'艺术品托管平台',icon:'mdi-web'}
+    {title:'社会文物登记服务中心',icon:'mdi-web',id:7},
+    {title:'离退+电商',icon:'mdi-web',id:8},
+    {title:'艺术品托管平台',icon:'mdi-web',id:9}
 ];
 

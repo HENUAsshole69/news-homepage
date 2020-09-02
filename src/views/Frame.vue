@@ -198,6 +198,7 @@
                             <v-btn
                                     text color="white"
                                     class="top-menu"
+                                    @click="goTo({id:10})"
                             >
                                信息公开
                             </v-btn>
@@ -206,6 +207,7 @@
                             <v-btn
                                     text color="white"
                                     class="top-menu"
+                                    @click="goTo({id:11})"
                             >
                                 关于我们
                             </v-btn>
