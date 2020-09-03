@@ -11,7 +11,7 @@
                                     style="overflow: hidden;cursor: pointer;"
                             >
                                 <v-img
-                                        @click="$router.push('/view/'+6)"
+                                        @click="$router.push('/view/static'+6)"
                                         class="zoom white--text align-end"
                                         height="200px"
                                         :src="require('../../public/img/zxm1.jpg')"
@@ -33,6 +33,7 @@
                                 <v-img
                                         class="zoom white--text align-end"
                                         height="200px"
+                                        @click="$router.push('/view/static'+7)"
                                         :src="require('../../public/img/zxm2.jpg')"
                                 >
                                     <v-card-title>
@@ -58,6 +59,7 @@
                                 <v-img
                                         class="zoom white--text align-end"
                                         height="200px"
+                                        @click="$router.push('/view/static'+8)"
                                         :src="require('../../public/img/zxm3.png')"
                                 >
                                     <v-card-title>
@@ -81,6 +83,7 @@
                                 <v-img
                                         class="zoom white--text align-end"
                                         height="200px"
+                                        @click="$router.push('/view/static'+9)"
                                         :src="require('../../public/img/zxm4.png')"
                                 >
                                     <v-card-title>
