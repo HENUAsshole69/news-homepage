@@ -14,4 +14,5 @@ export const TypeToDisplayMap: {[key in Type | SubType]: string} = {
     'SPRING_AUTUMN': '春秋',
     'WANG_SU': '望塑',
     'ONLINE_AUCTION': '网拍',
+    'EXHIBITION_INFO': '展讯'
 }

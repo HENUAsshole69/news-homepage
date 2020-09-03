@@ -18,9 +18,10 @@
       }">
                                         <template v-slot:default="{items}">
                                             <v-container>
-                                                <v-row class="d-flex justify-center align-center">
-                                                    <v-col class="flex-grow-0" :key="item.id" v-for="item in items">
-                                                        <info-card v-bind:id="item.id"/>
+                                                <v-row class="d-flex justify-center align-center"  :key="item.id" v-for="item in items">
+                                                    <v-col class="flex-grow-0">
+
+                                                        <info-entry v-bind:id="item.id"/>
                                                     </v-col>
                                                 </v-row>
                                             </v-container>
@@ -46,10 +47,10 @@
     import JpaDataIterator from "@lu1kaifeng/jpa-data-table/src/components/JpaDataIterator";
     import Frame from "../Frame";
     import TypeAndPubRepo from '../../client/TypeAndPubRepo';
-    import InfoCard from "./InfoCard";
+    import InfoEntry from "./InfoEntry";
     export default {
         name: "ExhibitionInfoBrowser",
-        components: {InfoCard, Frame,JpaDataIterator},
+        components: {InfoEntry, Frame,JpaDataIterator},
         props:{
         },
         data:()=>({

@@ -46,6 +46,12 @@ Vue.use(VueRouter)
       component: () => import(/* webpackChunkName: "about" */ '../views/ExhibitionInfo/ExhibitionInfoBrowser.vue')
     },
     {
+      path: '/exhibition/info/detail/:id',
+      name: 'ExhibitionInfoDetail',
+      props:true,
+      component: () => import(/* webpackChunkName: "about" */ '../views/ExhibitionInfo/InfoDetail.vue')
+    },
+    {
       path: '/category/detail/:id',
       name: 'CategoryDetail',
       props:true,
@@ -97,6 +103,7 @@ router.beforeEach((to, from, next) => {
       to.name !== 'CategoryDetail' &&
       to.name !== 'StaticViewer' &&
       to.name !== 'ExhibitionInfo' &&
+      to.name !== 'ExhibitionInfoDetail' &&
       to.name !== 'Viewer' &&
       store.state.token === null){
     next('/login')

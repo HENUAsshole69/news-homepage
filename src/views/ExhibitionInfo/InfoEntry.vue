@@ -1,33 +1,28 @@
 <template>
-        <v-carousel
-                cycle
-                hide-delimiter-background
-                :show-arrows="false"
-                height="200"
-                :hide-delimiters="true"
-        >
-            <v-carousel-item
-                    v-for="(image, i) in images"
-                    :key="i"
-                    :src="image"
-                    style="width: 500px"
-            ></v-carousel-item>
-        </v-carousel>
+    <v-list-item @click="$router.push('/exhibition/info/detail/'+id)" style="cursor: pointer">
+        <v-list-item-avatar rounded="0" :height="100" :width="100" color="grey"><v-img :src="images[0]" aspect-ratio="1.7778" :min-width="200"/></v-list-item-avatar>
+        <v-list-item-content>
+            <v-list-item-title class="headline">{{obj!==null?obj.title:''}}</v-list-item-title>
+            <v-list-item-subtitle>{{obj!==null?new Date(obj.time).toLocaleDateString():''}}</v-list-item-subtitle>
+        </v-list-item-content>
+    </v-list-item>
 </template>
 
 <script>
     import {ArticleClient} from "../../client/ArticleClient";
     export default {
-        name: "InfoCoverViewer",
+        name: "InfoEntry",
         props:{
             id: String
         },
         data:()=>({
             picB64:null,
-            images:[]
+            images:[],
+            obj:null
         }),
-        beforeMount() {
-            this.loadPic(0)
+        async beforeMount() {
+            await this.loadPic(0)
+            this.obj = await ArticleClient.getArticleDto(this.id)
         },
         methods:{
             loadPic:async function (index) {

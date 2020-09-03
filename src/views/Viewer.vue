@@ -10,7 +10,7 @@
                                     indeterminate
                                     color="cyan"
                             ></v-progress-linear>
-                            <v-card-title class="headline">{{obj !== null?obj.title:''}}</v-card-title>
+                            <v-card-title class="headline text-center">{{obj !== null?obj.title:''}}</v-card-title>
                             <v-divider  v-show="!loading"/>
 
                             <v-container style="background-color: white">
