@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div style="position: fixed;right: 1em;bottom: 1em;z-index: 100">
+        <div style="position: fixed;right: 1em;bottom: 4em;z-index: 100">
             <v-card tile>
             <v-list style="padding-top: 0;padding-bottom: 0" dense>
                 <v-list-item-group color="primary"  v-model="selected">
