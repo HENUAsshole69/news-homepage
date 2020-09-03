@@ -20,7 +20,8 @@
                 {value: 'ANNOUNCE',text: '公告'},
                 {value: 'TAX_FREE',text: '保税仓储'},
                 {value: 'EXHIBITION',text: '展览展示'},
-                {value: 'AUCTION',text: '拍卖'}
+                {value: 'AUCTION',text: '拍卖'},
+                {value:'EXHIBITION_INFO',text: '展讯'}
                 ],
             rules:[v=>v !== undefined || '不可不选']
         }),

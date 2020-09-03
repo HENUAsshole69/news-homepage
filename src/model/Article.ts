@@ -20,7 +20,8 @@ export type Type = 'NEWS' |
     'ANNOUNCE'|
     'TAX_FREE'|
     'EXHIBITION'|
-    'AUCTION'
+    'AUCTION' |
+    'EXHIBITION_INFO'
 
 export type SubType = 'PAINTING' |
     'PORCELAIN' |

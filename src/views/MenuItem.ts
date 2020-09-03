@@ -7,7 +7,7 @@ export const browseItems = [
     {title:'书画展',icon:'mdi-camera-burst',path:'/category/EXHIBITION/PAINTING'},
     {title:'瓷器展',icon:'mdi-flask-empty',path:'/category/EXHIBITION/PORCELAIN'},
     {title:'杂项展',icon:'mdi-view-parallel',path:'/category/EXHIBITION/MISC'},
-    {title:'展讯介绍',icon:'mdi-information-variant',id:4}
+    {title:'展讯介绍',icon:'mdi-information-variant',path: '/exhibition/info'}
 ];
 export const auctionItems=[
     {title:'春秋',icon:'mdi-leaf-maple',path:'/category/AUCTION/SPRING_AUTUMN'},
