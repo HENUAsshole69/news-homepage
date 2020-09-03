@@ -49,7 +49,7 @@
             this.obj = await ArticleClient.getArticleDto(this.id)
             this.loading = false
         },
-        updated() {
+        async updated() {
             const Font = Quill.import('formats/font');
             Font.whitelist = ['SimSun', 'SimHei','Microsoft-YaHei','KaiTi','FangSong','Arial','Times-New-Roman','sans-serif'];
             Quill.register(Font, true);

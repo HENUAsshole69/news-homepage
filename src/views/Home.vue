@@ -144,7 +144,7 @@ export default {
       goTo(item){
           if(item.id !== undefined) {
               const id = item.id
-              if (this.$store.state.userObj === null) return this.$router.push('/view/static' + id)
+              if (this.$store.state.userObj === null) return this.$router.push('/view/static/' + id)
 
               this.$router.push('/view/static/' + id)
           }

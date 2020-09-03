@@ -256,14 +256,20 @@
             selected:0
         }),
         methods:{
-            goTo(item){
+            async goTo(item){
                 if(item.id !== undefined) {
                     const id = item.id
-                    if (this.$store.state.userObj === null) return this.$router.push('/view/static' + id)
-                    this.$router.push('/view/static/' + id)
+                    if (this.$store.state.userObj === null){
+                        await this.$router.push('/view/static/' + id)
+                        this.$router.go(0)
+                        return
+                    }
+                    await this.$router.push('/view/static/' + id)
+                    this.$router.go(0)
                 }
                 if(item.path !== undefined){
-                    this.$router.push(item.path)
+                    await this.$router.push(item.path)
+                    this.$router.go(0)
                 }
             }
         }
