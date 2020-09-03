@@ -21,11 +21,12 @@
     import ItemTray from "@/components/ExhibitionSection/ItemTray";
     import TypeAndPubRepo from "@/client/TypeAndPubRepo";
     import TaxFreeTab from "@/components/TaxFreeSection/TaxFreeTab";
+    import ExhibitionTypeAndPubRepo from "../client/ExhibitionTypeAndPubRepo";
     export default {
         name: "TaxFree",
         components: {TaxFreeTab},
         data:()=>({
-            repo: { fetch: TypeAndPubRepo("TAX_FREE",true)}
+            repo: { fetch: ExhibitionTypeAndPubRepo("TAX_FREE",true)}
         })
     }
 </script>

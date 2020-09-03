@@ -1,5 +1,5 @@
 import {JpaDataRepository} from '@lu1kaifeng/jpa-data-table/src/components/JpaDataTable'
-import {Article, ArticleIndividualManagement, ArticleManagement, ArticleView, Type} from "@/model/Article";
+import {Article, ArticleIndividualManagement, ArticleManagement, ExhibitionArticleView, Type} from "@/model/Article";
 import {PageRequest} from "@lu1kaifeng/jpa-data-table/src/model/PageRequest"
 import { Page } from '@lu1kaifeng/jpa-data-table/src/model/Page';
 import AxiosInstance from "@/client/AxiosInstance";
