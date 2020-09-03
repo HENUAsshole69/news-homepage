@@ -3,7 +3,7 @@
         <v-row class="d-flex justify-center">
             <v-col lg="8">
         <v-container>
-            <v-row>
+            <v-row class="flex-nowrap">
                 <v-col class="d-flex justify-center align-center" style="padding-right:0;margin-right: 0">
                     <v-img  max-width="227" max-height="175" :src="require('../../public/img/wz1.png')" />
                 </v-col>
