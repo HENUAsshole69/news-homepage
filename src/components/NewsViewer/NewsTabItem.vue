@@ -1,10 +1,10 @@
 <template>
     <v-container fluid style="padding: 0;margin: 0">
-        <v-row no-gutters>
-            <v-col>
+        <v-row no-gutters class="flex-nowrap">
+            <v-col cols="6">
                 <cover-viewer v-bind:id="currentNews.toString()" :key="currentNews"/>
             </v-col>
-            <v-col style="padding: 0;margin: 0" >
+            <v-col style="padding: 0;margin: 0" cols="6">
                 <jpa-data-table style="padding: 0;margin: 0" :repo="repos[tab - 1]" :data-table-props="{
         'multi-sort':true,
         'footer-props':{

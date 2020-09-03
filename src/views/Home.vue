@@ -1,7 +1,7 @@
 <template>
     <div>
         <Frame>
-    <v-container style="padding: 0;margin: 0;">
+    <v-container fluid style="padding: 0;margin: 0;">
         <v-row no-gutters class="d-flex justify-center">
             <v-col lg="8">
                 <v-row style="padding-top: 0;margin-top: 0" class="flex-nowrap">
