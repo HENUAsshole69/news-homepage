@@ -1,5 +1,5 @@
 export const warehouseItems=[
-    {title:'艺术品介绍',icon:'mdi-artstation',id:1},
+    {title:'艺术品介绍',icon:'mdi-artstation',path:'/list/TAX_FREE'},
     {title:'仓储介绍',icon:'mdi-library',id:2},
     {title:'海关监管',icon:'mdi-earth',id:3},
 ];

@@ -1,10 +1,15 @@
 <template>
     <v-list-item @click="$router.push('/exhibition/info/detail/'+id)" style="cursor: pointer">
-        <v-list-item-avatar rounded="0" :height="100" :width="100" color="grey"><v-img :src="images[0]" aspect-ratio="1.7778" :min-width="200"/></v-list-item-avatar>
+        <v-list-item-avatar rounded="0" :height="100" width="25%" color="grey"><v-img :src="images[0]" aspect-ratio="1.7778" :min-width="200"/></v-list-item-avatar>
         <v-list-item-content>
-            <v-list-item-title class="headline">{{obj!==null?obj.title:''}}</v-list-item-title>
-            <v-list-item-subtitle>{{obj!==null?new Date(obj.time).toLocaleDateString():''}}</v-list-item-subtitle>
+            <v-list-item-title class="headline" style="flex-wrap: nowrap">
+                {{obj!==null?obj.title:''}}
+
+            </v-list-item-title>
         </v-list-item-content>
+        <v-list-item-action>
+            <v-list-item-subtitle style="display: inline-block">{{obj!==null?new Date(obj.time).toLocaleDateString():''}}</v-list-item-subtitle>
+        </v-list-item-action>
     </v-list-item>
 </template>
 

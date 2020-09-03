@@ -45,7 +45,7 @@
 <script>
     import JpaDataTable from "@lu1kaifeng/jpa-data-table/src/components/JpaDataTable";
     import Frame from "../Frame";
-    import TypeAndPubRepo from '../../client/TypeAndPubRepo';
+    import TypeAndPubRepo from '../../client/ExhibitionTypeAndPubRepo';
     export default {
         name: "ListBrowser",
         components: {Frame,JpaDataTable},

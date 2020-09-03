@@ -32,7 +32,7 @@
                                 </v-col>
                             </v-row>
                             <v-row no-gutters>
-                                <v-col>
+                                <v-col v-if="false">
                                     <div>
                                         <v-card-title class="text subtitle-2 font-weight-bold"><p class="my-2" style="color: #525261;padding-right: 0.5em">关于</p>开封数字文化投资有限公司</v-card-title>
 
