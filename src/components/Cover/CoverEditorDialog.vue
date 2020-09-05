@@ -1,5 +1,5 @@
 <template>
-    <v-dialog v-model="dialog" persistent max-width="600px" @close="$emit('close')">
+    <v-dialog v-model="dialog" persistent max-width="600px" @close="$emit('close')" @click:outside="$emit('close')">
         <v-card>
             <v-card-text>
                 <v-container>

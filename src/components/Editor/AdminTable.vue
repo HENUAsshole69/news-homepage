@@ -23,6 +23,7 @@
             <v-btn class="ma-2" @click="editCover(item)" tile outlined color="success">
                 <v-icon left>mdi-book</v-icon> 图片编辑
             </v-btn>
+            <ware-house-info-btn v-if="type === 'TAX_FREE'" @click="()=>editWareHouseInfo(item.id)"/>
         </template>
         <template v-slot:item.headline="{ item }">
             <headline-checkbox :id="item.id" v-model="item.headline"/>
@@ -32,6 +33,7 @@
         </template>
     </jpa-data-table>
         <cover-editor-dialog :key="id" :dialog="dialog" :id="id" @close="dialog = false"/>
+        <ware-house-info-dialog v-model="wareHouseDialog" :key="wareHouseDialogId" :id="wareHouseDialogId"/>
     </div>
 </template>
 
@@ -43,22 +45,33 @@
     import EditBtn from "./Admin/EditBtn";
     import CoverEditorDialog from "../Cover/CoverEditorDialog";
     import HeadlineCheckbox from "./Admin/HeadlineCheckbox";
+    import WareHouseInfoBtn from "./Admin/WareHouseInfoBtn";
+    import WareHouseInfoDialog from "../WareHouseInfoDialog";
 
     export default {
         name: "AdminTable",
-        components:{HeadlineCheckbox, CoverEditorDialog, EditBtn, DelBtn, PublishBtn, JpaDataTable},
+        components:{
+            WareHouseInfoDialog,
+            WareHouseInfoBtn, HeadlineCheckbox, CoverEditorDialog, EditBtn, DelBtn, PublishBtn, JpaDataTable},
         data:()=>({
             dialog:false,
             id:null,
-            TypeToDisplayMap
+            TypeToDisplayMap,
+            wareHouseDialog:false,
+            wareHouseDialogId:0
         }),
         props:{
-            repo:Object
+            repo:Object,
+            type:String
         },
         methods:{
             editCover(item){
                 this.id = item.id.toString()
                 this.dialog = true
+            },
+            editWareHouseInfo(id){
+                this.wareHouseDialogId = id
+                this.wareHouseDialog = true
             }
         }
     }

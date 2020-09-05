@@ -7,7 +7,7 @@
         </v-row>
         <v-row>
             <v-col>
-                <admin-table :repo="repo()" :key="type+i" @update="i++"/>
+                <admin-table :repo="repo()" :key="type+i" @update="i++" :type="type"/>
             </v-col>
         </v-row>
     </v-container>

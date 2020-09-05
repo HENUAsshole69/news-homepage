@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-dialog v-model="first" persistent max-width="600px" @close="$router.go(-1)">
+        <v-dialog v-model="first" persistent max-width="600px" @close="$router.go(-1)" @click:outside="$router.go(-1)">
             <v-card>
                 <v-card-title>
                     <span class="headline">新增</span>
