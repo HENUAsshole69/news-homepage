@@ -35,7 +35,7 @@
         },
         methods:{
             click(){
-                this.$router.push("/category/detail/"+this.id)
+                this.$router.push("/view/"+this.id)
             }
         }
     }
