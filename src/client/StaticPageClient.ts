@@ -26,4 +26,7 @@ export class StaticPageClient {
             headers: { 'Content-Type': 'text/plain' }
         })
     }
+    static async publish(id: number){
+        return await AxiosInstance.put('/static/page/'+id+'/publish')
+    }
 }

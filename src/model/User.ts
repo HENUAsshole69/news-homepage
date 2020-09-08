@@ -4,7 +4,7 @@ export interface UserInfo {
     realName: string;
 }
 
-export type UserType = "INDIVIDUAL" | "ADMIN"
+export type UserType = "INDIVIDUAL" | "ADMIN" | "AUTH"
 
 
 

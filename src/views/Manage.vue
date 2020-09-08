@@ -58,27 +58,6 @@
                                             </v-list-item-icon>
                                         </v-list-item>
                                     </v-list-group>
-                                    <v-list-group
-                                            prepend-icon="mdi-account-circle"
-                                            :value="false"
-                                            v-if="this.$store.state.userObj.type === 'ADMIN'"
-                                    >
-                                        <template v-slot:activator>
-                                            <v-list-item-title>页面编辑</v-list-item-title>
-                                        </template>
-
-                                        <v-list-item
-                                                v-for="(tab, i) in pagesTab"
-                                                :key="i"
-                                                link
-                                                @click="$router.push('/edit/static/'+tab.id)"
-                                        >
-                                            <v-list-item-title v-text="tab.title"></v-list-item-title>
-                                            <v-list-item-icon>
-                                                <v-icon >mdi-file</v-icon>
-                                            </v-list-item-icon>
-                                        </v-list-item>
-                                    </v-list-group>
                                 </v-list>
                             </v-navigation-drawer >
                         </div>
@@ -138,6 +117,16 @@
             }
         },
         async beforeMount() {
+            if(this.$store.state.userObj.type === 'ADMIN' || this.$store.state.userObj.type === 'AUTH'){
+                this.adminTabs.push({
+                    sec:"管理",
+                    title:"静态页面管理",
+                    icon:'mdi-account-box-multiple',
+                    path:"/manage/pagesManagement"
+                })
+                // eslint-disable-next-line no-self-assign
+                this.adminTabs = this.adminTabs
+            }
             // eslint-disable-next-line @typescript-eslint/no-this-alias
             const model = this
             const crumbItem = [

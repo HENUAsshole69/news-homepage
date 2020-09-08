@@ -46,8 +46,12 @@
         }),
         async mounted() {
             this.loading = true
-            this.content = JSON.stringify((await StaticPageClient.getStaticPage(this.id)).data)
             this.obj = await StaticPageClient.getStaticPageDto(this.id)
+            if(this.obj.published !== true){
+                this.$router.push('/')
+            }
+            this.content = JSON.stringify((await StaticPageClient.getStaticPage(this.id)).data)
+
             this.loading = false
         },
         updated() {

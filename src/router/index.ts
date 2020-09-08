@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
 import store from '../store/index'
+import {StaticPageClient} from "@/client/StaticPageClient";
 
 Vue.use(VueRouter)
 
@@ -19,6 +20,11 @@ Vue.use(VueRouter)
           path: 'articleManagement',
           name: 'ArticleManagement',
           component: ()=>import('../views/Management/ArticleManagement.vue')
+        },
+        {
+          path: 'pagesManagement',
+          name: 'PagesManagement',
+          component: ()=>import('../views/Management/StaticPageManagement.vue')
         },
         {
           path: '/manage/editor',
@@ -111,3 +117,4 @@ router.beforeEach((to, from, next) => {
     next()
   }
 })
+
