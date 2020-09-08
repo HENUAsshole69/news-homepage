@@ -1,6 +1,6 @@
 <template>
     <v-container fluid style="padding: 0;margin: 0">
-        <v-row no-gutters class="flex-nowrap">
+        <v-row no-gutters class="">
             <v-col>
                 <cover-viewer v-bind:id="currentNews.toString()" :key="currentNews"/>
             </v-col>

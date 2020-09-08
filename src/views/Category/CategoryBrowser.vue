@@ -14,7 +14,8 @@
                 'items-per-page-all-text': '所有项',
                 'items-per-page-options':[12]
                 },
-               'no-data-text':'无数据'
+               'no-data-text':'无数据',
+               'items-per-page':12
       }">
                                         <template v-slot:default="{items}">
                                             <v-container>

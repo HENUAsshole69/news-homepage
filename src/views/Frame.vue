@@ -195,13 +195,33 @@
                                             </v-menu>
                                         </div>
                                         <div class="my-2">
-                                            <v-btn
-                                                    text color="white"
-                                                    class="top-menu"
-                                                    @click="goTo({id:10})"
-                                            >
-                                                信息公开
-                                            </v-btn>
+                                            <v-menu open-on-hover offset-y>
+                                                <template v-slot:activator="{ on, attrs }">
+                                                    <v-btn
+                                                            text color="white"
+                                                            v-bind="attrs"
+                                                            v-on="on"
+                                                            class="top-menu"
+                                                    >
+                                                        信息公开
+                                                    </v-btn>
+                                                </template>
+
+                                                <v-list color="#29395a">
+                                                    <v-list-item
+                                                            v-for="item in newsItems"
+                                                            :key="item.title"
+                                                            link
+                                                            dense
+                                                            @click="goTo(item)"
+                                                    >
+
+                                                        <v-list-item-content>
+                                                            <v-list-item-title   class="menu-text">{{ item.title }}</v-list-item-title>
+                                                        </v-list-item-content>
+                                                    </v-list-item>
+                                                </v-list>
+                                            </v-menu>
                                         </div>
                                         <div class="my-2">
                                             <v-btn
@@ -238,7 +258,7 @@
 <script>
     import Footer from "../components/Footer";
     import LegalInfo from "../components/LegalInfo";
-    import {auctionItems, browseItems, childDeptItems, warehouseItems} from "./MenuItem";
+    import {auctionItems, browseItems, childDeptItems, newsItems, warehouseItems} from "./MenuItem";
     export default {
         name: "Frame",
         components: {LegalInfo, Footer},
@@ -247,6 +267,7 @@
             browseItems,
             auctionItems,
             childDeptItems,
+            newsItems,
             floatingOptions:[
                 {icon:'mdi-open-in-app',text:'我要展览展示',path:'/manage/editor'},
                 {icon:'mdi-gavel',text:'我要拍卖',path:'/manage/editor'},

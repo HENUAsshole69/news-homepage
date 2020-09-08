@@ -4,9 +4,11 @@
         'multi-sort':true,
         'footer-props':{
                 'items-per-page-text': '每页显示项数:',
-                'items-per-page-all-text': '所有项'
+                'items-per-page-all-text': '所有项',
+                'items-per-page-options':[5,10,15]
                 },
                'no-data-text':'无数据'
+
       }">
         <template v-slot:footer.page-text="{pageStart,
   pageStop,
@@ -21,7 +23,7 @@
             <del-btn v-bind="item" @deleted="$emit('update')" />
             <edit-btn  v-bind="item"/>
             <v-btn class="ma-2" @click="editCover(item)" tile outlined color="success">
-                <v-icon left>mdi-book</v-icon> 图片编辑
+                <v-icon left>mdi-book</v-icon> 前台显示图片
             </v-btn>
             <ware-house-info-btn v-if="type === 'TAX_FREE'" @click="()=>editWareHouseInfo(item.id)"/>
         </template>

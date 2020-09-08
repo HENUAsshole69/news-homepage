@@ -14,7 +14,7 @@
         data:()=>({
             val:'NEWS',
             items:[
-                {value:'NEWS',text: '新闻'},
+                {value:'NEWS',text: '要闻'},
                 {value: 'ACTIVITY',text: '活动'},
                 {value: 'POLICY',text: '政策'},
                 {value: 'ANNOUNCE',text: '公告'},
