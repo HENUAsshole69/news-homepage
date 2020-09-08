@@ -11,6 +11,7 @@ export interface Article {
     subType?: SubType | Type;
     registry?: string;
     value?: string;
+    top?: boolean;
     wareHouseType?: string;
 }
 
@@ -41,7 +42,9 @@ export class ArticleManagement implements Article{
     @Header({text: "时间", order: 2})
     time: string;
     @Header({text: "轮播", order: 3})
-    headline: boolean
+    headline: boolean;
+    @Header({text: "置顶", order: 4})
+    top: boolean;
     @Header({text: "类型", order: 1})
     subType?: SubType | Type;
 
@@ -54,6 +57,7 @@ export class ArticleManagement implements Article{
         this.title = article.title
         this.type = article.type
         this.headline = article.headline
+        this.top = article.top ?? false
     }
 }
 @TableItem({

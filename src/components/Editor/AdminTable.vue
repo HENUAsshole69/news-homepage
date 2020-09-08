@@ -30,6 +30,9 @@
         <template v-slot:item.headline="{ item }">
             <headline-checkbox :id="item.id" v-model="item.headline"/>
         </template>
+        <template v-slot:item.top="{ item }">
+            <stay-top-checkbox :id="item.id" v-model="item.top"/>
+        </template>
         <template v-slot:item.time="{ item }">
             {{ new Date(item.time).toLocaleDateString() }}
         </template>
@@ -49,10 +52,12 @@
     import HeadlineCheckbox from "./Admin/HeadlineCheckbox";
     import WareHouseInfoBtn from "./Admin/WareHouseInfoBtn";
     import WareHouseInfoDialog from "../WareHouseInfoDialog";
+    import StayTopCheckbox from "./Admin/StayTopCheckbox";
 
     export default {
         name: "AdminTable",
         components:{
+            StayTopCheckbox,
             WareHouseInfoDialog,
             WareHouseInfoBtn, HeadlineCheckbox, CoverEditorDialog, EditBtn, DelBtn, PublishBtn, JpaDataTable},
         data:()=>({

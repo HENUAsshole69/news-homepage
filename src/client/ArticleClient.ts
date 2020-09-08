@@ -73,6 +73,10 @@ export class ArticleClient{
         return await AxiosInstance.delete('/article/'+id+'/headline')
     }
 
+    static async putTop(id: number,value: boolean){
+        return await AxiosInstance.put('/article/'+id+'/top/'+value)
+    }
+
     static async putArticleProperties(id: number,registry: string,wareHouseType: string, value: string){
         return await AxiosInstance.put('/article/wareHouse/properties/'+id,{},{
             params:{
