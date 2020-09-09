@@ -44,7 +44,7 @@
             </v-container>
         </v-list-item>
         <v-row style="padding: 0;margin: 0;background-color: #f4f4f4" class="d-flex justify-center" no-gutter>
-            <button @click="$router.push('/list/'+types[tab])"><v-col class="flex-grow-0 load-more">查看更多</v-col></button>
+            <button @click="$router.push('/newsList/'+types[tab])"><v-col class="flex-grow-0 load-more">查看更多</v-col></button>
         </v-row>
     </v-card>
 </template>

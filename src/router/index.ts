@@ -70,6 +70,12 @@ Vue.use(VueRouter)
       component: () => import(/* webpackChunkName: "about" */ '../views/Category/CategoryBrowser.vue')
     },
     {
+      path: '/newsList/:type',
+      name: 'NewsListBrowser',
+      props:true,
+      component: () => import(/* webpackChunkName: "about" */ '../views/List/NewsListBrowser.vue')
+    },
+    {
       path: '/list/:type',
       name: 'ListBrowser',
       props:true,
