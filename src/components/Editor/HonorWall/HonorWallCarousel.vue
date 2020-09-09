@@ -1,31 +1,31 @@
 <template>
-    <v-carousel
-            cycle
-            height="400"
-            hide-delimiter-background
-            style="cursor: pointer"
-    >
-        <v-carousel-item
-                v-for="(image, i) in images"
-                :key="i"
-        >
-            <honor-wall-image :id="image.id"/>
-        </v-carousel-item>
-    </v-carousel>
+    <slider v-bind="settings"/>
 </template>
 
 <script>
-    import HonorWallImage from "./HonorWallImage";
+    import slider from 'vue-image-scroll';
     import {WallImageClient} from "../../../client/WallImageClient";
 
     export default {
         name: "HonorWallCarousel",
-        components: {HonorWallImage},
+        components: {slider},
         data:()=>({
-            images:[]
+            settings: {
+                imgStyle: {
+                    borderRadius: '20px'
+                },
+                image:[],
+                interval: 1000,
+                autoRoll: true
+            }
         }),
         async mounted() {
-            this.images= await WallImageClient.getImageDtoList()
+            this.settings.image=
+            await Promise.all((await WallImageClient.getImageDtoList())
+                .map(async function (x) {
+                    return ('data:image/jpeg;base64,' + await WallImageClient.getImage(x.id))
+                }))
+            console.log(this.settings.image)
         },
         methods:{
         }
