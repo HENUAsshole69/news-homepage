@@ -6,7 +6,7 @@
                     dark
             >
                 <!--<h3>新闻管理系统</h3>-->
-                <v-img style="margin: -2em" max-width="400px" :src="require('../../public/img/logo-big-horizontal.png')"/>
+                <v-img  @click="$router.push('/')" style="cursor: pointer;margin: -2em" max-width="400px" :src="require('../../public/img/logo-big-horizontal.png')"/>
                 <v-spacer/>
                 <v-btn class="ma-2" tile text @click="setting = true">
                     <v-icon left>mdi-cog</v-icon> 用户设置

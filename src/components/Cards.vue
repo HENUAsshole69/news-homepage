@@ -16,7 +16,7 @@
                                         height="200px"
                                         :src="require('../../public/img/zxm1.jpg')"
                                 >
-                                    <v-card-title>艺术银行</v-card-title>
+                                    <v-card-title>艺术银行金融服务</v-card-title>
                                 </v-img>
 
                                 <v-card-text class="text--primary">
@@ -37,7 +37,7 @@
                                         :src="require('../../public/img/zxm2.jpg')"
                                 >
                                     <v-card-title>
-                                        社会文物登记服务中心
+                                        文物艺术品服务中心
                                     </v-card-title>
                                 </v-img>
 
@@ -63,7 +63,7 @@
                                         :src="require('../../public/img/zxm3.png')"
                                 >
                                     <v-card-title>
-                                        离退+电商
+                                        离境退税店与跨境电商
                                     </v-card-title>
                                 </v-img>
 

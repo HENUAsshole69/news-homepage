@@ -71,7 +71,7 @@
                     <v-col lg="8">
                         <v-row no-gutters class="flex-nowrap">
                             <v-col class="flex-grow-0">
-                                <img :src="require('../../public/img/logo.png')">
+                                <img  @click="$router.push('/')" style="cursor: pointer" :src="require('../../public/img/logo.png')">
                             </v-col>
                             <v-col class="flex-grow-1">
                                 <v-container fluid>
@@ -272,7 +272,7 @@
                 {icon:'mdi-open-in-app',text:'我要展览展示',path:'/manage/editor'},
                 {icon:'mdi-gavel',text:'我要拍卖',path:'/manage/editor'},
                 {icon:'mdi-bank',text:'我要保税仓储',path:'/manage/editor'},
-                {icon:'mdi-account',text:'文物登记',path:'/manage/editor'}
+                {icon:'mdi-account',text:'鉴证登记托管',path:'/manage/editor'}
             ],
             selected:0
         }),
