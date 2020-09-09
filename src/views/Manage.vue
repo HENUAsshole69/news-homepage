@@ -123,7 +123,14 @@
                     title:"静态页面管理",
                     icon:'mdi-account-box-multiple',
                     path:"/manage/pagesManagement"
-                })
+                },
+                    {
+                        sec:"管理",
+                        title:"荣誉墙管理",
+                        icon:'mdi-picture',
+                        path:"/manage/wallImages"
+                    }
+                )
                 // eslint-disable-next-line no-self-assign
                 this.adminTabs = this.adminTabs
             }

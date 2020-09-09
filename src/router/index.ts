@@ -13,7 +13,7 @@ Vue.use(VueRouter)
   },
     {
       path: '/manage',
-      component: () => import(/* webpackChunkName: "about" */ '../views/Manage.vue'),
+      component: () => import( '../views/Manage.vue'),
       children:[
         { path: '', redirect:  { name: 'ArticleManagement' } },
         {
@@ -26,10 +26,15 @@ Vue.use(VueRouter)
           name: 'PagesManagement',
           component: ()=>import('../views/Management/StaticPageManagement.vue')
         },
+          {
+        path: 'wallImages',
+        name: 'WallImages',
+        component: ()=>import('../views/Management/WallImage.vue')
+},
         {
           path: '/manage/editor',
           name: 'Editor',
-          component: () => import(/* webpackChunkName: "about" */ '../views/Management/NewArticle.vue')
+          component: () => import( '../views/Management/NewArticle.vue')
         }
       ]
     },
@@ -37,61 +42,61 @@ Vue.use(VueRouter)
       path: '/edit/static/:id',
       name: 'StaticEdit',
       props:true,
-      component: () => import(/* webpackChunkName: "about" */ '../views/StaticEdit.vue')
+      component: () => import( '../views/StaticEdit.vue')
     },
     {
       path: '/edit/:id',
       name: 'ArticleEdit',
       props:true,
-      component: () => import(/* webpackChunkName: "about" */ '../views/ArticleEdit.vue')
+      component: () => import( '../views/ArticleEdit.vue')
     },
     {
       path: '/exhibition/info',
       name: 'ExhibitionInfo',
       props:true,
-      component: () => import(/* webpackChunkName: "about" */ '../views/ExhibitionInfo/ExhibitionInfoBrowser.vue')
+      component: () => import( '../views/ExhibitionInfo/ExhibitionInfoBrowser.vue')
     },
     {
       path: '/exhibition/info/detail/:id',
       name: 'ExhibitionInfoDetail',
       props:true,
-      component: () => import(/* webpackChunkName: "about" */ '../views/ExhibitionInfo/InfoDetail.vue')
+      component: () => import( '../views/ExhibitionInfo/InfoDetail.vue')
     },
     {
       path: '/category/detail/:id',
       name: 'CategoryDetail',
       props:true,
-      component: () => import(/* webpackChunkName: "about" */ '../views/Category/CategoryDetail.vue')
+      component: () => import( '../views/Category/CategoryDetail.vue')
     },
     {
       path: '/category/:type/:subType',
       name: 'CategoryBrowser',
       props:true,
-      component: () => import(/* webpackChunkName: "about" */ '../views/Category/CategoryBrowser.vue')
+      component: () => import( '../views/Category/CategoryBrowser.vue')
     },
     {
       path: '/newsList/:type',
       name: 'NewsListBrowser',
       props:true,
-      component: () => import(/* webpackChunkName: "about" */ '../views/List/NewsListBrowser.vue')
+      component: () => import( '../views/List/NewsListBrowser.vue')
     },
     {
       path: '/list/:type',
       name: 'ListBrowser',
       props:true,
-      component: () => import(/* webpackChunkName: "about" */ '../views/List/ListBrowser.vue')
+      component: () => import( '../views/List/ListBrowser.vue')
     },
     {
       path: '/view/static/:id',
       name: 'StaticViewer',
       props:true,
-      component: () => import(/* webpackChunkName: "about" */ '../views/StaticViewer.vue')
+      component: () => import( '../views/StaticViewer.vue')
     },
     {
       path: '/view/:id',
       name: 'Viewer',
       props:true,
-      component: () => import(/* webpackChunkName: "about" */ '../views/Viewer.vue')
+      component: () => import( '../views/Viewer.vue')
     },
     {
       path: '/login/:reg?',

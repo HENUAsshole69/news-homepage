@@ -2,6 +2,7 @@
     <v-carousel
             cycle
             height="400"
+            style="cursor: pointer"
             hide-delimiter-background
     >
         <v-carousel-item
