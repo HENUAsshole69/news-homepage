@@ -12,7 +12,9 @@
         data:()=>({
             settings: {
                 imgStyle: {
-                    borderRadius: '20px'
+                    objectFit: 'contain',
+                    height:'500',
+                    width:'400'
                 },
                 image:[],
                 interval: 1000,

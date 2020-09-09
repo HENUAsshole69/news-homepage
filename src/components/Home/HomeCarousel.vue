@@ -15,6 +15,7 @@
                    contain
                    max-height="400"
                    aspect-ratio="1.7778"
+                   @click="()=>click(image.id)"
                    gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)">
                 <v-card-title>{{image.title}}</v-card-title>
             </v-img>

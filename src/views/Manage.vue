@@ -127,7 +127,7 @@
                     {
                         sec:"管理",
                         title:"荣誉墙管理",
-                        icon:'mdi-picture',
+                        icon:'mdi-account-box-multiple',
                         path:"/manage/wallImages"
                     }
                 )
