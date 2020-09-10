@@ -65,7 +65,7 @@
                 </v-list>
             </v-menu>
         </v-app-bar>
-        <v-container fluid :style="{ backgroundImage: 'url(' + require('../../public/img/indexhbg.jpg') + ')','background-size':'cover' }">
+        <v-container fluid class="fill-height" :style="{ backgroundImage: 'url(' + require('../../public/img/indexhbg.jpg') + ')','background-size':'cover' }">
             <v-container style="padding: 0;margin: 0;">
                 <v-row no-gutters   class="d-flex justify-center flex-nowrap">
                     <v-col lg="8">
@@ -249,9 +249,12 @@
             </v-container>
             <slot></slot>
         </v-container>
+
         <slot name="footer"></slot>
+        <v-footer padless absolute>
         <Footer/>
         <LegalInfo/>
+        </v-footer>
     </div>
 </template>
 

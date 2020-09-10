@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="height: 100%">
         <Frame>
             <v-container>
                 <v-row  class="d-flex justify-center">
