@@ -116,6 +116,7 @@ router.beforeEach((to, from, next) => {
   if(to.name !== 'LogIn' &&
       to.name !== 'Home' &&
       to.name !== 'ListBrowser' &&
+      to.name !== 'NewsListBrowser' &&
       to.name !== 'CategoryBrowser' &&
       to.name !== 'CategoryDetail' &&
       to.name !== 'StaticViewer' &&

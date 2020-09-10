@@ -22,10 +22,10 @@ export const  childDeptItems = [
     {title:'艺术品托管平台',icon:'mdi-web',id:9}
 ];
 export const  newsItems = [
-    {title:'活动',icon:'mdi-web',id:6,path:'/list/ACTIVITY'},
-    {title:'政策',icon:'mdi-web',id:7,path:'/list/POLICY'},
-    {title:'要闻',icon:'mdi-web',id:8,path:'/list/NEWS'},
-    {title:'公告',icon:'mdi-web',id:9,path:'/list/ANNOUNCE'}
+    {title:'活动',icon:'mdi-web',path:'/newsList/ACTIVITY'},
+    {title:'政策',icon:'mdi-web',path:'/newsList/POLICY'},
+    {title:'要闻',icon:'mdi-web',path:'/newsList/NEWS'},
+    {title:'公告',icon:'mdi-web',path:'/newsList/ANNOUNCE'}
 ];
 
 

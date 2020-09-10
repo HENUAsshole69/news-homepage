@@ -57,7 +57,10 @@
         data:()=>({
         }),
         methods:{
-            NewsTypeAndPubRepo
+            NewsTypeAndPubRepo,
+            click(id){
+                this.$router.push("/view/"+id)
+            }
         }
     }
 </script>

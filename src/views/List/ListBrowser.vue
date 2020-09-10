@@ -59,7 +59,10 @@
         data:()=>({
         }),
         methods:{
-            TypeAndPubRepo
+            TypeAndPubRepo,
+            click(id){
+                this.$router.push("/category/detail/"+id)
+            }
         }
     }
 </script>
