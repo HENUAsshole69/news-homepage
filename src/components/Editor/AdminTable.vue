@@ -15,9 +15,6 @@
   itemsLength}">
             {{'从第'+pageStart+'项至第'+pageStop+'项，共'+itemsLength+'项'}}
         </template>
-        <template v-slot:item.subType="{ item }">
-            {{TypeToDisplayMap[item.subType]}}
-        </template>
         <template v-slot:item.actions="{ item }">
             <publish-btn v-bind="item" v-if="$store.state.userObj.type === 'ADMIN'"/>
             <del-btn v-bind="item" @deleted="$emit('update')" />

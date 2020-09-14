@@ -45,7 +45,6 @@ export class ArticleManagement implements Article{
     headline: boolean;
     @Header({text: "置顶", order: 4})
     top: boolean;
-    @Header({text: "类型", order: 1})
     subType?: SubType | Type;
 
     type: Type;
@@ -71,7 +70,6 @@ export class ArticleIndividualManagement implements Article{
     @Header({text: "时间", order: 2})
     time: string;
     headline: boolean
-    @Header({text: "类型", order: 1})
     subType?: (SubType | Type);
 
     type: Type;
