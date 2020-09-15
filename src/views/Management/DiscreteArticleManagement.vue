@@ -25,7 +25,10 @@
         name: "DiscreteArticleManagement",
         components: {AuctionSubTypeSelect, ArtifactSubTypeSelect,  AdminTable},
         props:{
-            type:String
+            type:{
+                type:String,
+                default:"EXHIBITION"
+            }
         },
         data:()=>({
             subType:undefined,

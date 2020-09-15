@@ -174,14 +174,14 @@
                     href: '#',
                 },
                 {
-                    text: [...this.adminTabs].filter(function (value) {
+                    text: [...this.adminTabs,...this.articlesTabs].filter(function (value) {
                         return value.path === model.$router.currentRoute.fullPath
                     })[0].sec,
                     disabled: false,
                     href: '#',
                 },
                 {
-                    text: [...this.adminTabs].filter(function (value) {
+                    text: [...this.adminTabs,...this.articlesTabs].filter(function (value) {
                         return value.path === model.$router.currentRoute.fullPath
                     })[0].title,
                     disabled: true,
@@ -190,7 +190,6 @@
             ]
             this.crumbItem.length = 0;
             this.crumbItem.push(...crumbItem)
-
             if(this.$store.state.userObj.type === 'ADMIN')this.pagesTab = await StaticPageClient.getStaticPageDtoList()
 
         },

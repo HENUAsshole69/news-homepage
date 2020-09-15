@@ -15,15 +15,15 @@ Vue.use(VueRouter)
       path: '/manage',
       component: () => import( '../views/Manage.vue'),
       children:[
-        { path: '', redirect:  { name: 'ArticleManagement' } },
+        { path: '', redirect:  { name: 'DiscreteArticleManagement',params:{type: 'EXHIBITION'} } },
         {
           path: 'articleManagement',
           name: 'ArticleManagement',
           component: ()=>import('../views/Management/ArticleManagement.vue')
         },
           {
-              path: 'articleType/:type',
-              name: 'ArticleManagement',
+              path: 'articleType/:type?',
+              name: 'DiscreteArticleManagement',
               props:true,
               component: ()=>import('../views/Management/DiscreteArticleManagement.vue')
           },
