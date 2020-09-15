@@ -21,6 +21,12 @@ Vue.use(VueRouter)
           name: 'ArticleManagement',
           component: ()=>import('../views/Management/ArticleManagement.vue')
         },
+          {
+              path: 'articleType/:type',
+              name: 'ArticleManagement',
+              props:true,
+              component: ()=>import('../views/Management/DiscreteArticleManagement.vue')
+          },
         {
           path: 'pagesManagement',
           name: 'PagesManagement',

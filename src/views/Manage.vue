@@ -58,6 +58,26 @@
                                             </v-list-item-icon>
                                         </v-list-item>
                                     </v-list-group>
+                                    <v-list-group
+                                            prepend-icon="mdi-account-box-multiple"
+                                            value="true"
+                                    >
+                                        <template v-slot:activator>
+                                            <v-list-item-title>条目管理</v-list-item-title>
+                                        </template>
+
+                                        <v-list-item
+                                                v-for="(tab, i) in articlesTabs"
+                                                :key="i"
+                                                link
+                                                @click="goToTab(tab)"
+                                        >
+                                            <v-list-item-title v-text="tab.title"></v-list-item-title>
+                                            <v-list-item-icon>
+                                                <v-icon v-text="tab.icon"></v-icon>
+                                            </v-list-item-icon>
+                                        </v-list-item>
+                                    </v-list-group>
                                 </v-list>
                             </v-navigation-drawer >
                         </div>
@@ -81,12 +101,6 @@
             adminTabs:[
                 {
                     sec:"管理",
-                    title:"条目管理",
-                    icon:'mdi-account-box-multiple',
-                    path:"/manage/articleManagement"
-                },
-                {
-                    sec:"管理",
                     title: "新建",
                     icon:'mdi-folder-plus',
                     path:"/manage/editor"
@@ -94,6 +108,16 @@
             ],
             pagesTab:[
 
+            ],
+            articlesTabs:[
+                {sec:"条目管理",icon:'mdi-account-box-multiple',path:'/manage/articleType/NEWS',title: '要闻'},
+                {sec:"条目管理",icon:'mdi-account-box-multiple',path: '/manage/articleType/ACTIVITY',title: '活动'},
+                {sec:"条目管理",icon:'mdi-account-box-multiple',path: '/manage/articleType/POLICY',title: '政策'},
+                {sec:"条目管理",icon:'mdi-account-box-multiple',path: '/manage/articleType/ANNOUNCE',title: '公告'},
+                {sec:"条目管理",icon:'mdi-account-box-multiple',path: '/manage/articleType/TAX_FREE',title: '保税仓储'},
+                {sec:"条目管理",icon:'mdi-account-box-multiple',path: '/manage/articleType/EXHIBITION',title: '展览展示'},
+                {sec:"条目管理",icon:'mdi-account-box-multiple',path: '/manage/articleType/AUCTION',title: '拍卖'},
+                {sec:"条目管理",icon:'mdi-account-box-multiple',path:'EXHIBITION_INFO',title: '展讯'}
             ],
             searchDialog:false,
             keyInput:'',
@@ -160,6 +184,13 @@
             this.crumbItem.length = 0;
             this.crumbItem.push(...crumbItem)
             if(this.$store.state.userObj.type === 'ADMIN')this.pagesTab = await StaticPageClient.getStaticPageDtoList()
+            if(this.$store.state.userObj.type !== 'ADMIN'){
+                const arr = this.articlesTabs.filter(function (word) {
+                    return word.path === '/manage/articleType/EXHIBITION' || word.path === '/manage/articleType/AUCTION'
+                })
+                this.articlesTabs.length = 0
+                this.articlesTabs.push(...arr)
+            }
         },
         beforeUpdate:function () {
             // eslint-disable-next-line @typescript-eslint/no-this-alias
