@@ -141,6 +141,13 @@
             }
         },
         async beforeMount() {
+            if(this.$store.state.userObj.type !== 'ADMIN'){
+                const arr = this.articlesTabs.filter(function (word) {
+                    return word.path === '/manage/articleType/EXHIBITION' || word.path === '/manage/articleType/AUCTION'
+                })
+                this.articlesTabs.length = 0
+                this.articlesTabs.push(...arr)
+            }
             if(this.$store.state.userObj.type === 'ADMIN' || this.$store.state.userObj.type === 'AUTH'){
                 this.adminTabs.push({
                     sec:"管理",
@@ -183,14 +190,9 @@
             ]
             this.crumbItem.length = 0;
             this.crumbItem.push(...crumbItem)
+
             if(this.$store.state.userObj.type === 'ADMIN')this.pagesTab = await StaticPageClient.getStaticPageDtoList()
-            if(this.$store.state.userObj.type !== 'ADMIN'){
-                const arr = this.articlesTabs.filter(function (word) {
-                    return word.path === '/manage/articleType/EXHIBITION' || word.path === '/manage/articleType/AUCTION'
-                })
-                this.articlesTabs.length = 0
-                this.articlesTabs.push(...arr)
-            }
+
         },
         beforeUpdate:function () {
             // eslint-disable-next-line @typescript-eslint/no-this-alias
