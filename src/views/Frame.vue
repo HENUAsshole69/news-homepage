@@ -250,8 +250,9 @@
             <slot></slot>
         </v-container>
 
-        <slot name="footer"></slot>
-        <v-footer padless absolute>
+
+        <v-footer padless>
+            <slot name="footer"></slot>
         <Footer/>
         <LegalInfo/>
         </v-footer>
