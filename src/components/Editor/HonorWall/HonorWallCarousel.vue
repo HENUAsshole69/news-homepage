@@ -1,5 +1,5 @@
 <template>
-    <slider v-bind="settings"/>
+    <slider v-if="display" v-bind="settings"/>
 </template>
 
 <script>
@@ -19,7 +19,8 @@
                 image:[],
                 interval: 1000,
                 autoRoll: true
-            }
+            },
+            display:false
         }),
         async mounted() {
             this.settings.image=
@@ -27,6 +28,7 @@
                 .map(async function (x) {
                     return ('data:image/jpeg;base64,' + await WallImageClient.getImage(x.id))
                 }))
+            this.display = true
             console.log(this.settings.image)
         },
         methods:{
