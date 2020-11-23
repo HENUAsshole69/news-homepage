@@ -15,7 +15,7 @@
             val:'SPRING_AUTUMN',
             items:[
                 {value:'SPRING_AUTUMN',text: '春秋'},
-                {value: 'WANG_SU',text: '望塑'},
+                {value: 'WANG_SU',text: '望朔'},
                 {value: 'ONLINE_AUCTION',text: '网拍'}
             ],
             rules:[v=>v !== undefined || '不可不选']

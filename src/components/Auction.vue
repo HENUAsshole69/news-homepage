@@ -22,7 +22,7 @@
                                                         v-model="tab"
                                                 >
                                                     <v-tab>春秋</v-tab>
-                                                    <v-tab>望塑</v-tab>
+                                                    <v-tab>望朔</v-tab>
                                                     <v-tab>网拍</v-tab>
                                                 </v-tabs>
                                             </v-col>

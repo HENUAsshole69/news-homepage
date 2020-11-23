@@ -12,7 +12,7 @@ export const TypeToDisplayMap: {[key in Type | SubType]: string} = {
     'PORCELAIN': '瓷器',
     'MISC': '杂项',
     'SPRING_AUTUMN': '春秋',
-    'WANG_SU': '望塑',
+    'WANG_SU': '望朔',
     'ONLINE_AUCTION': '网拍',
     'EXHIBITION_INFO': '展讯'
 }
