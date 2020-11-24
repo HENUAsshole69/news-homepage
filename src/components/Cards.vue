@@ -16,7 +16,7 @@
                                         height="200px"
                                         :src="require('../../public/img/zxm1.jpg')"
                                 >
-                                    <v-card-title>艺术银行金融服务</v-card-title>
+                                    <v-card-title>艺术银行金融服务中心</v-card-title>
                                 </v-img>
 
                                 <v-card-text class="text--primary">
@@ -34,17 +34,15 @@
                                         class="zoom white--text align-end"
                                         height="200px"
                                         @click="$router.push('/view/static/'+7)"
-                                        :src="require('../../public/img/zxm2.jpg')"
+                                        :src="require('../../public/img/zxm2.png')"
                                 >
                                     <v-card-title>
-                                        文物艺术品服务中心
+                                      社会文物登记服务中心与艺术品鉴证服务中心
                                     </v-card-title>
                                 </v-img>
 
                                 <v-card-text class="text--primary">
-                                    <p>文化企业产品展示区位于保税仓二楼的中心区域，将集中展示开封本土文化产业的产品</p>
-                                    <p>目前已经在深圳文化产权交易所登记备案的开封文化企业有20余家，销售文化艺术品包含汴绣，官瓷，朱仙镇木版年画等等。
-                                    </p>
+                                    <p>在河南省文物局与开封自贸区管委会的支持下，特设立社会文物登记服务中心与艺术品鉴证服务中心，通过专家鉴定与科技检测，为社会文物和艺术品进行鉴证，确权，评估，并出具专业鉴定意见与登记证书，为收藏家保驾护航，为艺术品金融化提供专业保障。</p>
                                 </v-card-text>
                             </v-card>
                         </v-col>
@@ -60,7 +58,7 @@
                                         class="zoom white--text align-end"
                                         height="200px"
                                         @click="$router.push('/view/static/'+8)"
-                                        :src="require('../../public/img/zxm3.png')"
+                                        :src="require('../../public/img/zxm3.png.jpg')"
                                 >
                                     <v-card-title>
                                         离境退税店与跨境电商
@@ -87,12 +85,12 @@
                                         :src="require('../../public/img/zxm4.png')"
                                 >
                                     <v-card-title>
-                                        艺术品托管平台
+                                      艺术品托管中心
                                     </v-card-title>
                                 </v-img>
 
                                 <v-card-text class="text--primary">
-                                    <p>艺术品托管平台</p>
+                                    <p>艺术品托管中心是中国（河南）自贸区国际艺术品保税仓仓储，展示，拍卖等功能的集中体现，是实现艺术品资产化的平台，是艺术金融业务的资源库。经过鉴证评估的各类艺术资产可在托管中心挂牌展示，通过保税仓的平台吸引潜在消费者，促进艺术品交易流通。</p>
                                 </v-card-text>
                             </v-card>
                         </v-col>
