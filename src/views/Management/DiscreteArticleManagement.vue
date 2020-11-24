@@ -50,7 +50,13 @@
             if(this.$store.state.userObj.type !== 'ADMIN'){
                 this.type = 'EXHIBITION'
             }
-        }
+        },
+      updated(){
+          if(!(this.type === 'EXHIBITION' || this.type === 'AUCTION')){
+              this.subType = undefined
+          }
+
+      }
     }
 </script>
 
