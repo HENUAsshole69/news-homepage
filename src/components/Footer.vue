@@ -49,9 +49,8 @@
                                   </v-list>
                                 </v-col>
 
-                                <v-col>
+                                <v-col cols="6">
 
-                                    <div>
                                        <!-- <v-card-title class="subheading font-weight-bold">友情链接</v-card-title>-->
 
                                         <v-divider></v-divider>
@@ -62,11 +61,10 @@
                                                 <v-list-item-content class="align-end text"><friendly-link-select/></v-list-item-content>
                                             </v-list-item>
 
-                                          <v-list-item><v-list-item-content><v-img height="100px" contain :src="require('../../public/img/logo-big.png')"/></v-list-item-content></v-list-item>
+                                          <v-list-item><v-list-item-content><v-img height="150px" contain :src="require('../../public/img/logo-big.png')"/></v-list-item-content></v-list-item>
 
-                                          <v-list-item><v-list-item-content><v-img height="100px" contain :src="require('../../public/img/art_code.jpg')"/></v-list-item-content></v-list-item>
+                                          <v-list-item><v-list-item-content><v-img height="150px" contain :src="require('../../public/img/art_code.jpg')"/></v-list-item-content></v-list-item>
                                         </v-list>
-                                    </div>
 
                                 </v-col>
                             </v-row>
