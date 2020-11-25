@@ -41,7 +41,7 @@
 
 <script>
     import JpaDataTable from "@lu1kaifeng/jpa-data-table/src/components/JpaDataTable";
-    import {TypeToDisplayMap} from "../../model/TypeToDisplayMap";
+    import {TypeToDisplayMap} from "@/model/TypeToDisplayMap";
     import PublishBtn from "./Admin/PublishBtn";
     import DelBtn from "./Admin/DelBtn";
     import EditBtn from "./Admin/EditBtn";
