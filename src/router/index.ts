@@ -109,6 +109,11 @@ Vue.use(VueRouter)
       name: 'LogIn',
       props:true,
       component: ()=>import('../views/Login.vue')
+    },{
+          path: '/contact',
+          name: 'Contact',
+          props:true,
+          component: ()=>import('../views/Contact.vue')
     }
 ]
 
@@ -129,6 +134,7 @@ router.beforeEach((to, from, next) => {
       to.name !== 'ExhibitionInfo' &&
       to.name !== 'ExhibitionInfoDetail' &&
       to.name !== 'Viewer' &&
+      to.name !== 'Contact' &&
       store.state.token === null){
     next('/login')
   }else{

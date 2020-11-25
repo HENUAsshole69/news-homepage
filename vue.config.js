@@ -16,7 +16,7 @@ module.exports = {
         config
             .plugin('html')
             .tap(args => {
-                args[0].title = '开封国际艺术品保税仓'
+                args[0].title = '中国（河南）自贸区国际艺术品保税仓'
                 return args
             })
     },

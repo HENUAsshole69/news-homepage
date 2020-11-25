@@ -273,10 +273,10 @@
             childDeptItems,
             newsItems,
             floatingOptions:[
-                {icon:'mdi-open-in-app',text:'我要展览展示',path:'/manage/editor'},
-                {icon:'mdi-gavel',text:'我要拍卖',path:'/manage/editor'},
-                {icon:'mdi-bank',text:'我要保税仓储',path:'/manage/editor'},
-                {icon:'mdi-account',text:'鉴证登记托管',path:'/manage/editor'}
+                {icon:'mdi-open-in-app',text:'我要展览展示',path:'/contact'},
+                {icon:'mdi-gavel',text:'我要拍卖',path:'/contact'},
+                {icon:'mdi-bank',text:'我要保税仓储',path:'/contact'},
+                {icon:'mdi-account',text:'鉴证登记托管',path:'/contact'}
             ],
             selected:0
         }),
